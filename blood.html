@@ -2,13 +2,6 @@
 <html lang="en">
 
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDSB6E5Z0R"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-KDSB6E5Z0R');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Blood Bank | Donor Network</title>
@@ -121,8 +114,8 @@
     <nav class="glass-header sticky top-0 z-50 px-5 py-4">
         <div class="flex justify-between items-center max-w-lg mx-auto">
             <div class="flex items-center gap-2">
-                <div class="bg-red-600 p-2 rounded-xl shadow-lg shadow-red-100">
-                    <i class="fas fa-droplet text-white text-lg"></i>
+                <div>
+                   
                 </div>
                 <span class="text-xl font-extrabold tracking-tight text-slate-900 uppercase">Blood <span class="text-red-600">Bank</span></span>
             </div>
@@ -354,7 +347,7 @@
                                 <div class="absolute -bottom-1 -right-1 w-5 h-5 ${isReady ? 'bg-green-500' : 'bg-amber-500'} border-4 border-white rounded-full"></div>
                             </div>
                             <div class="overflow-hidden">
-                                <h3 class="font-extrabold text-slate-900 text-lg leading-tight truncate-name">${d.name}</h3>
+                                <h3 class="font-extrabold text-slate-650 text-lg leading-tight truncate-name">${d.name}</h3>
                                 <p class="text-xs font-bold text-slate-400 mt-1 flex items-center gap-1 uppercase tracking-tighter">
                                     <i class="fas fa-location-dot text-red-500"></i> ${d.address}
                                 </p>
@@ -384,5 +377,4 @@
         }
     </script>
 </body>
-
 </html>
