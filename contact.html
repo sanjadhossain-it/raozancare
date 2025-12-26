@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact Us | Raozan Helpline</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://i.ibb.co/fYVnDvZS/blood-donation-logo-blood-bank-png-favpng-Vjmcn-Sqewheyp0j-S0giry-SXpt.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            /* Deep Navy Premium */
+            --accent: #ef4444;
+            /* Vibrant Emergency Red */
+            --bg-calm: #f1f5f9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+            --whatsapp: #25D366;
+        }
+
+        /* --- DISABLE COPY --- */
+        * {
+            -webkit-user-select: none;
+            user-select: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-calm);
+            background-image: radial-gradient(at 0% 0%, rgba(15, 23, 42, 0.05) 0px, transparent 50%);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* --- NAVIGATION & GLASS EFFECT --- */
+        .glass-nav {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            padding: 15px 0;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+        .nav-brand img {
+            height: 42px;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+        }
+
+        .nav-brand span {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.4rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            max-width: 95%;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 5px;
+            border-radius: 50px;
+            width: fit-content;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-link.active {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- PAGE CONTENT --- */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 20px 80px 20px;
+        }
+
+        .contact-header {
+            text-align: center;
+            padding: 40px 10px;
+        }
+
+        .contact-header h1 {
+            font-weight: 800;
+            font-size: 2.2rem;
+            margin: 0;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .contact-header p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .emergency-banner {
+            background: var(--white);
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 24px;
+            border-radius: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 15px 30px -10px rgba(239, 68, 68, 0.15);
+        }
+
+        .emergency-banner h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.2rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-transform: uppercase;
+        }
+
+        .emergency-banner p {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+
+        .contact-method {
+            background: var(--white);
+            padding: 22px;
+            border-radius: 24px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+            border-color: rgba(15, 23, 42, 0.1);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+        }
+
+        .contact-method:active {
+            transform: scale(0.98);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .bg-red {
+            background: #fef2f2;
+            color: var(--accent);
+        }
+
+        .bg-green {
+            background: #f0fdf4;
+            color: var(--whatsapp);
+        }
+
+        .bg-blue {
+            background: #f0f9ff;
+            color: #0284c7;
+        }
+
+        .bg-grey {
+            background: #f8fafc;
+            color: var(--text-light);
+        }
+
+        .method-info b {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 2px;
+        }
+
+        .method-info span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .social-section {
+            text-align: center;
+            margin-top: 45px;
+        }
+
+        .social-section p {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .social-circle {
+            width: 55px;
+            height: 55px;
+            background: var(--white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            border: 1px solid var(--white);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+        }
+
+        .social-circle:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px) rotate(5deg);
+        }
+
+        .footer {
+            padding: 60px 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            line-height: 2;
+        }
+
+        @media (max-width: 480px) {
+            .contact-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-link {
+                padding: 10px 12px;
+                font-size: 0.65rem;
+            }
+
+            .brand-text-stack .bold-part,
+            .brand-text-stack .outline-part {
+                font-size: 1.1rem;
+            }
+
+            .icon-box {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+
+    
+
+    <div class="container">
+
+        <div class="contact-header">
+            <h1>Reach Out</h1>
+            <p>We are available 24/7 for community emergencies.</p>
+        </div>
+
+        <div class="emergency-banner">
+            <h3><i class="fas fa-ambulance"></i> Emergency Only</h3>
+            <p>If you need blood urgently, please call us directly for the fastest response.</p>
+        </div>
+
+        <a href="tel:+8801601764777" class="contact-method">
+            <div class="icon-box bg-red"><i class="fas fa-phone-alt"></i></div>
+            <div class="method-info">
+                <b>Call Helpline</b>
+                <span>+880 1601-764777</span>
+            </div>
+        </a>
+
+        <a href="https://wa.me/8801601764777" class="contact-method">
+            <div class="icon-box bg-green"><i class="fab fa-whatsapp"></i></div>
+            <div class="method-info">
+                <b>WhatsApp Chat</b>
+                <span>Instant response for queries</span>
+            </div>
+        </a>
+
+        <a href="mailto:info.noaparabloodbank@gmail.com" class="contact-method">
+            <div class="icon-box bg-blue"><i class="fas fa-envelope"></i></div>
+            <div class="method-info">
+                <b>Email Address</b>
+                <span>info.noaparabloodbank@gmail.com</span>
+            </div>
+        </a>
+
+        <div class="contact-method">
+            <div class="icon-box bg-grey"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="method-info">
+                <b>Our Location</b>
+                <span>Noapara, Raozan, Chattogram</span>
+            </div>
+        </div>
+
+        <div class="social-section">
+            <p>Follow our Community</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/groups/noaparabloodbank" class="social-circle" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-circle"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-circle"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2025 RAOZAN HELPLINE<br>
+            <span style="opacity: 0.8; letter-spacing: 0.5px;">Helping lives since 2017</span><br>
+            <span style="opacity: 0.5; font-size: 0.75rem; text-transform: uppercase;">Verified Humanitarian
+                Organization</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

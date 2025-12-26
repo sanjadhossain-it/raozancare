@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ambulance | Emergency Smart Helpline</title>
+
+    <meta name="description"
+        content="Quickest way to find an Ambulance in Raozan. Access verified emergency ambulance services.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --accent-blue: #2563eb;
+            --whatsapp-green: #25d366;
+            --app-bg: #f8fafc;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* Mobile App Interface */
+        .app-shell {
+            width: 100%;
+            max-width: 480px;
+            height: 100vh;
+            margin: 0 auto;
+            background-color: var(--app-bg);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Glassmorphism Header */
+        header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 16px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        header h1 {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .content-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 16px;
+            scrollbar-width: none;
+            background: linear-gradient(to bottom, #f8fafc, #ffffff);
+        }
+
+        .content-area::-webkit-scrollbar {
+            display: none;
+        }
+
+        .search-box {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            margin-left: 12px;
+            font-size: 0.95rem;
+            color: #1e293b;
+            background: transparent;
+        }
+
+        /* Mobile Friendly Cards */
+        .station-card {
+            background: white;
+            border-radius: 22px;
+            padding: 16px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #f1f5f9;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .station-card:active {
+            transform: scale(0.98);
+        }
+
+        .info-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .thumb {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.4rem;
+        }
+
+        .details h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin: 0;
+        }
+
+        .details p {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin: 2px 0 0;
+        }
+
+        .call-btn {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            width: 46px;
+            height: 46px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .call-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: white;
+        }
+
+        .register-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            padding: 24px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+        }
+
+        .wa-btn {
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 700;
+            width: 100%;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .info-section {
+            margin-top: 10px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 24px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .info-section h2 {
+            font-size: 1rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .faq-box {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #f8fafc;
+            padding-bottom: 12px;
+        }
+
+        .faq-box b {
+            font-size: 0.85rem;
+            color: #1e293b;
+        }
+
+        .faq-box p {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 5px;
+            line-height: 1.5;
+        }
+
+        /* Footer Design */
+        footer {
+            background-color: #ffffff;
+            padding: 20px 10px;
+            text-align: center;
+            border-top: 1px solid #f1f5f9;
+            z-index: 100;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #475569;
+            font-size: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .copy-info {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+
+    <div class="app-shell">
+        <header>
+            <h1>Ambulance</h1>
+        </header>
+
+        <div class="content-area" id="mainContent">
+            <div class="search-box">
+                <i class="fas fa-search text-gray-400"></i>
+                <input type="text" id="searchInput" onkeyup="filterAmbulances()"
+                    placeholder="Search service or area...">
+            </div>
+
+            <div id="ambulance-list" class="space-y-3">
+                <div class="text-center py-10">
+                    <i class="fas fa-circle-notch fa-spin text-blue-600 text-2xl"></i>
+                </div>
+            </div>
+
+            <div class="register-card">
+                <h3 class="text-slate-900 font-extrabold text-lg">Register Service</h3>
+                <p class="text-slate-500 text-sm mt-1 leading-relaxed">Are you an Ambulance driver? Join our network to
+                    help the community.</p>
+                <a href="https://wa.me/8801601764777?text=Hello,%20I%20am%20an%20ambulance%20driver.%20I%20would%20like%20to%20register."
+                    class="wa-btn">
+                    <i class="fab fa-whatsapp text-xl"></i> REGISTER NOW
+                </a>
+            </div>
+
+            <section class="info-section">
+                <h2>Common Questions</h2>
+                <div class="faq-box">
+                    <b>Real-time Directory</b>
+                    <p>We provide a curated list of verified ambulance services available 24/7.</p>
+                </div>
+                <div class="faq-box">
+                    <b>Service Charges</b>
+                    <p>Rates are determined by independent providers based on distance and urgency.</p>
+                </div>
+            </section>
+
+            <div class="p-6 text-[10px] text-gray-400 italic leading-relaxed text-center">
+                Note: We are a directory connecting users to private providers. Verify all details before booking.
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="copy-info">
+                &copy; 2025 <span class="text-blue-600 font-semibold">Smart Care</span> | All Rights Reserved
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Logic and Functions (Untouched)
+        let ambulanceData = [];
+
+        document.onkeydown = (e) => {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) return false;
+        };
+
+        window.onload = function () {
+            const mockData = [
+                { name: "Raozan Central Ambulance", location: "Noapara, Raozan", phone: "01700000000" },
+                { name: "Emergency Life Support", location: "Raozan Center", phone: "01800000000" },
+                { name: "Public Welfare Service", location: "East Raozan", phone: "01900000000" }
+            ];
+
+            setTimeout(() => {
+                ambulanceData = mockData;
+                renderAmbulances(mockData);
+            }, 500);
+        };
+
+        function renderAmbulances(data) {
+            const container = document.getElementById('ambulance-list');
+            container.innerHTML = '';
+
+            if (data.length === 0) {
+                container.innerHTML = '<div class="text-center py-10 text-gray-400 text-sm">No results found.</div>';
+                return;
+            }
+
+            data.forEach(item => {
+                const card = `
+            <div class="station-card">
+                <div class="info-group">
+                    <div class="thumb">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <div class="details">
+                        <h3>${item.name}</h3>
+                        <p>${item.location}</p>
+                    </div>
+                </div>
+                <a href="tel:${item.phone}" class="call-btn">
+                    <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" /></svg>
+                </a>
+            </div>`;
+                container.innerHTML += card;
+            });
+        }
+
+        function filterAmbulances() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = ambulanceData.filter(item =>
+                item.location.toLowerCase().includes(input) ||
+                item.name.toLowerCase().includes(input)
+            );
+            renderAmbulances(filtered);
+        }
+    </script>
+
+</body>
+
+</html>

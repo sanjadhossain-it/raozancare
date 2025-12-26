@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Privacy Policy | Raozan Helpline</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/fYVnDvZS/blood-donation-logo-blood-bank-png-favpng-Vjmcn-Sqewheyp0j-S0giry-SXpt.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a; /* Premium Deep Navy */
+            --accent: #ef4444;  /* Vibrant Emergency Red */
+            --bg-calm: #f1f5f9; 
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- DISABLE COPY --- */
+        * { -webkit-user-select: none; user-select: none; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-calm);
+            background-image: radial-gradient(at 0% 0%, rgba(15, 23, 42, 0.05) 0px, transparent 50%);
+            color: var(--text-dark);
+            margin: 0; padding: 0; line-height: 1.7;
+        }
+
+        /* --- NAVIGATION & GLASS EFFECT --- */
+        .glass-nav {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            padding: 15px 0;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+        .nav-brand img {
+            height: 42px;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+        }
+
+        .nav-brand span {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.4rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            max-width: 95%;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 5px;
+            border-radius: 50px;
+            width: fit-content;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-link.active {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- PAGE CONTENT --- */
+        .container { max-width: 750px; margin: 0 auto; padding: 20px 20px 80px 20px; }
+
+        .policy-header { text-align: center; padding: 40px 10px; }
+        .policy-header i { font-size: 3.5rem; color: var(--primary); margin-bottom: 15px; opacity: 0.9; }
+        .policy-header h1 { font-weight: 800; font-size: 2.2rem; margin: 0; color: var(--primary); letter-spacing: -1px; }
+        .policy-header p { color: var(--text-light); font-size: 0.95rem; margin-top: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        .policy-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--white);
+            transition: transform 0.3s ease;
+        }
+        .policy-card:hover { transform: translateY(-5px); }
+
+        .policy-card h2 {
+            font-size: 1.3rem; font-weight: 800; color: var(--primary);
+            display: flex; align-items: center; gap: 15px; margin-top: 0; margin-bottom: 20px;
+        }
+        .policy-card h2 i { font-size: 1.2rem; opacity: 0.7; }
+
+        .policy-card p, .policy-card li { 
+            font-size: 1rem; color: var(--text-dark); opacity: 0.9; font-weight: 500;
+        }
+
+        .policy-card ul { padding-left: 20px; margin: 15px 0; }
+        .policy-card li { margin-bottom: 12px; }
+        .policy-card li b { color: var(--primary); font-weight: 700; }
+
+        .highlight-box {
+            background: #f8fafc;
+            border-left: 5px solid var(--primary);
+            padding: 22px;
+            border-radius: 16px;
+            margin: 25px 0 10px 0;
+            font-size: 1rem;
+        }
+
+        .footer { 
+            padding: 60px 20px; text-align: center; 
+            color: var(--text-light); font-size: 0.85rem; font-weight: 600; line-height: 2;
+        }
+
+        @media (max-width: 480px) {
+            .policy-header h1 { font-size: 1.8rem; }
+            .policy-card { padding: 20px; }
+            .nav-link { padding: 10px 12px; font-size: 0.65rem; }
+            .brand-text-stack .bold-part, .brand-text-stack .outline-part { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    
+
+    <div class="container">
+        
+        <div class="policy-header">
+            <i class="fas fa-user-shield"></i>
+            <h1>Privacy Policy</h1>
+            <p>Effective Date: December 2025</p>
+        </div>
+
+        <div class="policy-card">
+            <h2><i class="fas fa-database"></i> Information We Collect</h2>
+            <p>When you register as a donor at Noapara Blood Bank, we collect the following personal information:</p>
+            <ul>
+                <li><b>Name & Age:</b> To identify you as a valid donor.</li>
+                <li><b>Blood Group:</b> To match you with patients in need.</li>
+                <li><b>Phone Number:</b> To allow emergency seekers to contact you.</li>
+                <li><b>Location:</b> To find donors near Raozan and Noapara area.</li>
+            </ul>
+            <div class="highlight-box">
+                <i class="fas fa-info-circle" style="color: var(--primary); margin-right: 8px;"></i>
+                <b style="color: var(--primary);">Why we collect it:</b> This data is used solely for humanitarian purposes—to facilitate emergency blood transfusions and save lives.
+            </div>
+        </div>
+
+        <div class="policy-card">
+            <h2><i class="fas fa-ad"></i> Google AdSense & Advertising</h2>
+            <p>We use Google AdSense to serve ads on our website. Google, as a third-party vendor, uses cookies to serve ads based on your visit to this and other websites on the Internet.</p>
+            <ul>
+                <li><b>DART Cookies:</b> Google's use of the DART cookie enables it to serve ads to our users.</li>
+                <li><b>User Choice:</b> You may opt out of the use of the DART cookie by visiting the Google Ad and Content Network privacy policy.</li>
+            </ul>
+            <p>We also use standard log files that track IP addresses, browser types, and timestamps to analyze trends and improve user experience.</p>
+        </div>
+
+        <div class="policy-card">
+            <h2><i class="fas fa-lock"></i> How We Protect Your Data</h2>
+            <p>We do not sell, trade, or rent donor personal identification information to others. For the safety of our female donors, their contact numbers are hidden from public view and are only shared via our verified Admin helpline.</p>
+        </div>
+
+        <div class="policy-card">
+            <h2><i class="fas fa-check-circle"></i> Your Consent</h2>
+            <p>By using our website and registering your information, you hereby consent to our Privacy Policy and agree to its terms. You have the right to update or remove your data at any time via the "Update" tab on our homepage.</p>
+        </div>
+
+        <div class="policy-card">
+            <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+            <p>If you have any questions regarding this privacy policy or the practices of this site, please contact us at:</p>
+            <p style="margin-top: 15px; color: var(--primary); font-weight: 700;">
+                Email: info.noaparabloodbank@gmail.com
+            </p>
+        </div>
+
+        <div class="footer">
+            © 2025 RAOZAN HELPLINE<br>
+            <span style="opacity: 0.8; letter-spacing: 0.5px;">Developed by Sanjad Hossain</span><br>
+            <span style="opacity: 0.5; font-size: 0.75rem; text-transform: uppercase;">Verified Humanitarian Project</span>
+        </div>
+    </div>
+
+</body>
+</html>

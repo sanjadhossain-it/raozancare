@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fire Service | Raozan Emergency Services & Contact</title>
+    
+    <meta name="description" content="Official emergency directory for Raozan Fire Service. Get instant access to Raozan fire station contact numbers, rescue locations, and 24/7 fire safety assistance.">
+    <meta name="keywords" content="Raozan Fire Service, Raozan Fire Station Number, Fire Brigade Raozan, Emergency Rescue Raozan, Civil Defense Raozan">
+    <meta name="author" content="Raozan Emergency Hub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.com/">
+
+    <meta property="og:title" content="Fire Service | Raozan Emergency Hub">
+    <meta property="og:description" content="Verified contact directory for Fire & Rescue services in Raozan.">
+    <meta property="og:type" content="website">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GovernmentOrganization",
+      "name": "Raozan Fire Service",
+      "description": "24/7 Fire and Rescue services directory for Raozan citizens.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Raozan",
+        "addressCountry": "BD"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "999",
+        "contactType": "emergency"
+      }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #b91c1c; 
+            --accent: #ef4444;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.7);
+        }
+
+        * { 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent; 
+            touch-action: pan-x pan-y;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0; /* Outer wrapper color */
+            color: var(--text-main);
+            margin: 0; padding: 0;
+            display: flex; justify-content: center;
+            line-height: 1.6;
+            -ms-overflow-style: none;  
+            scrollbar-width: none;  
+        }
+
+        body::-webkit-scrollbar { display: none; }
+
+        /* Mobile App Container */
+        main { 
+            width: 100%; 
+            max-width: 480px; 
+            background: var(--bg-body); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Glassmorphism Header (No Icon) */
+        header {
+            width: 100%; 
+            max-width: 480px;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: var(--primary); 
+            padding: 18px; 
+            text-align: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        header h1 { 
+            margin: 0; 
+            font-size: 1.25rem; 
+            letter-spacing: -0.5px; 
+            font-weight: 800; 
+            text-transform: uppercase;
+        }
+
+        /* Fast Loading Banner */
+        .banner-wrapper { width: 100%; padding: 20px; }
+        .slider-card {
+            width: 100%; height: 210px; border-radius: 24px;
+            overflow: hidden; box-shadow: 0 12px 24px rgba(185, 28, 28, 0.1);
+            background: #cbd5e1;
+        }
+        .slider-img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.5s ease-in-out; }
+
+        /* Smoother Interface Elements */
+        .search-container { width: 90%; margin-bottom: 25px; }
+        .search-bar {
+            width: 100%; padding: 16px 24px; border: 1px solid #e2e8f0;
+            border-radius: 18px; font-size: 1rem; background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-bar:focus { border-color: var(--primary); box-shadow: 0 4px 20px rgba(185, 28, 28, 0.05); }
+
+        .station-list { width: 90%; display: flex; flex-direction: column; gap: 15px; }
+        .station-card {
+            background: var(--card-bg); border-radius: 22px; padding: 16px;
+            display: flex; align-items: center; justify-content: space-between;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease;
+        }
+        .station-card:active { transform: scale(0.97); }
+
+        .station-info { display: flex; align-items: center; gap: 14px; }
+        .station-thumb { 
+            width: 54px; height: 54px; border-radius: 14px; 
+            background: #fef2f2; display: flex; align-items: center; 
+            justify-content: center; color: var(--primary); font-size: 1.4rem;
+        }
+        .station-details h3 { margin: 0; font-size: 0.95rem; font-weight: 700; color: #1e293b; }
+        .station-details p { margin: 2px 0 0; font-size: 0.8rem; color: var(--text-muted); }
+
+        .call-action {
+            background: linear-gradient(135deg, var(--accent), var(--primary)); 
+            width: 44px; height: 44px;
+            border-radius: 14px; display: flex; align-items: center;
+            justify-content: center; text-decoration: none;
+            box-shadow: 0 4px 15px rgba(185, 28, 28, 0.3);
+        }
+        .call-action svg { width: 20px; height: 20px; fill: white; }
+
+        /* AdSense Compatibility Context Section */
+        .content-section { width: 90%; margin-top: 30px; }
+        .content-section h2 { font-size: 1.1rem; margin-bottom: 12px; color: #1e293b; font-weight: 800; }
+        
+        .faq-item { background: white; border-radius: 18px; padding: 15px; margin-bottom: 12px; border: 1px solid #f1f5f9; }
+        .faq-item b { display: block; font-size: 0.9rem; margin-bottom: 4px; color: #1e293b; }
+        .faq-item p { margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+        .disclaimer-box { background: #fff; padding: 15px; border-radius: 18px; border: 1px solid #f1f5f9; margin-bottom: 30px; }
+        .disclaimer { font-size: 0.75rem; color: var(--text-muted); text-align: justify; line-height: 1.6; }
+
+        /* Upgraded Footer */
+        footer {
+            width: 100%; background: white; padding: 40px 20px;
+            text-align: center; border-top: 1px solid #f1f5f9; margin-top: auto;
+        }
+        .footer-links { margin-bottom: 15px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+        .footer-links a { color: var(--text-main); text-decoration: none; font-size: 0.8rem; font-weight: 600; }
+        .footer-links a:hover { color: var(--primary); }
+        .copyright { font-size: 0.75rem; color: #94a3b8; line-height: 1.5; }
+
+        @media (min-width: 600px) {
+            main { box-shadow: 0 0 50px rgba(0,0,0,0.05); }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <header>
+        <h1>Fire Service</h1>
+    </header>
+
+
+    <section class="banner-wrapper">
+        <div class="slider-card">
+            <img id="slider" class="slider-img" src="https://images.unsplash.com/photo-1583907584102-49339796e62a?auto=format&fit=crop&w=800&q=80" alt="Raozan Fire Safety Banner">
+        </div>
+    </section>
+
+    <div class="search-container">
+        <input type="text" class="search-bar" id="searchInput" placeholder="Search by area (e.g. Noapara)..." onkeyup="filterStations()">
+    </div>
+
+    <section class="station-list" id="stationList">
+        <article class="station-card" data-location="Raozan Center">
+            <div class="station-info">
+                <div class="station-thumb">
+                    <i class="fas fa-fire-extinguisher"></i>
+                </div>
+                <div class="station-details">
+                    <h3>Raozan Fire Station</h3>
+                    <p>Main Road, Raozan Center</p>
+                </div>
+            </div>
+            <a href="tel:01730336655" class="call-action" aria-label="Call Now">
+                <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" /></svg>
+            </a>
+        </article>
+
+        <article class="station-card" data-location="North Raozan">
+            <div class="station-info">
+                <div class="station-thumb">
+                    <i class="fas fa-truck-medical"></i>
+                </div>
+                <div class="station-details">
+                    <h3>North Raozan Post</h3>
+                    <p>Noapara / Pahartali Area</p>
+                </div>
+            </div>
+            <a href="tel:01730336655" class="call-action" aria-label="Call Now">
+                <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" /></svg>
+            </a>
+        </article>
+    </section>
+
+    <section class="content-section">
+        <h2>Emergency FAQ</h2>
+        <div class="faq-item">
+            <b>How to report a fire?</b>
+            <p>Immediately dial 999 or call 01730336655. Stay calm and provide your exact location to the operator.</p>
+        </div>
+        <div class="faq-item">
+            <b>Emergency Ambulance Service</b>
+            <p>Raozan Fire Service provides specialized ambulance support for accident victims and fire-related injuries 24/7.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Safety Disclaimer</h2>
+        <div class="disclaimer-box">
+            <div class="disclaimer">
+                This portal is for community awareness and emergency assistance. We prioritize data accuracy, but technical or network issues may occur. In any extreme crisis, always attempt to alert neighbors while contacting the fire brigade.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <nav class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About Us</a>
+        </nav>
+        <div class="copyright">
+            &copy; 2025 Raozan Care. All Rights Reserved.<br>
+            Verified Safety Resource for Chattogram.
+        </div>
+    </footer>
+</main>
+
+<script>
+    /* Slider Logic - Untouched */
+    const bannerImages = [
+        "https://images.unsplash.com/photo-1583907584102-49339796e62a?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1617251137884-f135eccf6942?auto=format&fit=crop&w=800&q=80"
+    ];
+    let currentIdx = 0;
+    const slider = document.getElementById('slider');
+    setInterval(() => {
+        currentIdx = (currentIdx + 1) % bannerImages.length;
+        slider.style.opacity = 0;
+        setTimeout(() => {
+            slider.src = bannerImages[currentIdx];
+            slider.style.opacity = 1;
+        }, 500);
+    }, 4500);
+
+    /* Filter Logic - Untouched */
+    function filterStations() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const cards = document.getElementsByClassName('station-card');
+        for (let i = 0; i < cards.length; i++) {
+            let location = cards[i].getAttribute('data-location').toLowerCase();
+            cards[i].style.display = location.includes(input) ? "flex" : "none";
+        }
+    }
+</script>
+
+</body>
+</html>

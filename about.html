@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>About Us | Raozan Care - Community Emergency & Blood Donor Network</title>
+    <meta name="description" content="Learn about Raozan Care, the leading humanitarian platform in Noapara, Raozan. We connect blood donors and emergency seekers to save lives through technology.">
+    <meta name="keywords" content="Raozan Care, Blood Donor Raozan, Emergency Services Raozan, Noapara Helpline, Humanitarian Organization Raozan">
+    <meta name="author" content="Raozan Care Team">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="About Us | Raozan Care">
+    <meta property="og:description" content="Digitizing community assistance in Raozan. Bridging the gap between emergency seekers and voluntary donors.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://yourdomain.com/about">
+
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/fYVnDvZS/blood-donation-logo-blood-bank-png-favpng-Vjmcn-Sqewheyp0j-S0giry-SXpt.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #ef4444;
+            --bg-calm: #f1f5f9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- DISABLE COPY AND HIGHLIGHT --- */
+        * {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-calm);
+            background-image: radial-gradient(at 0% 0%, rgba(15, 23, 42, 0.03) 0px, transparent 50%);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- UPGRADED GLASS HEADER --- */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            padding: 18px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        /* --- PAGE CONTENT --- */
+        .container {
+            max-width: 500px; /* Mobile App Interface width */
+            margin: 0 auto;
+            padding: 20px 15px 100px 15px;
+        }
+
+        /* Smooth animation for cards */
+        .hero-section, .stat-card, .info-card {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 25px;
+            background: var(--white);
+            border-radius: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--white);
+        }
+
+        .hero-section i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            filter: drop-shadow(0 8px 12px rgba(239, 68, 68, 0.15));
+        }
+
+        .hero-section h2 {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .hero-section p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 22px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--white);
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .stat-card p {
+            margin: 4px 0 0;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--white);
+        }
+
+        .info-card h2 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .info-card p {
+            line-height: 1.7;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 18px;
+            background: #f8fafc;
+            border: 1px solid #f1f5f9;
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--white);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-text b {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .feature-text span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* --- BUTTONS --- */
+        .btn-join {
+            display: block;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px -5px rgba(15, 23, 42, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-join:active {
+            transform: scale(0.96);
+            opacity: 0.9;
+        }
+
+        /* --- FOOTER UPGRADE --- */
+        .footer {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .adsense-context {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 15px;
+            opacity: 0.8;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.15rem; }
+            .container { padding-top: 15px; }
+            .stat-card h3 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+
+    <header>
+        <h1>About Us</h1>
+    </header>
+
+    <div class="container">
+
+        <div class="hero-section">
+            <i class="fas fa-heartbeat"></i>
+            <h2>Saving Lives Together</h2>
+            <p>Empowering Raozan through digital unity and humanitarian service.</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>500+</h3>
+                <p>Donors</p>
+            </div>
+            <div class="stat-card">
+                <h3>24/7</h3>
+                <p>Support</p>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+            <p>
+                Founded in Noapara, Raozan, our mission is to digitize community assistance. We bridge the gap between
+                emergency seekers and voluntary donors through a fast, transparent, and secure platform.
+            </p>
+        </div>
+
+        <div class="info-card">
+            <h2><i class="fas fa-shield-alt"></i> Core Services</h2>
+
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                <div class="feature-text">
+                    <b>Instant Help</b>
+                    <span>Verified contact database for local hospitals and civil services.</span>
+                </div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-lock"></i></div>
+                <div class="feature-text">
+                    <b>Security First</b>
+                    <span>Advanced data encryption to ensure user and donor privacy.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h2><i class="fas fa-users"></i> The Community</h2>
+            <p>
+                Raozan Care is a volunteer-led initiative. We provide high-quality information and medical resource 
+                coordination at no cost to the public. Our content is curated by local experts to ensure reliability.
+            </p>
+            <a href="bloodreg.html" class="btn-join">Become a Member</a>
+            
+            <p class="adsense-context">
+                Raozan Care adheres to strict editorial guidelines. We provide original content regarding public health 
+                safety, blood donation awareness, and community development. Our platform is a non-profit humanitarian resource.
+            </p>
+        </div>
+
+        <div class="footer">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+            © 2025 RAOZAN CARE<br>
+            All rights reserved.
+        </div>
+    </div>
+
+</body>
+
+</html>

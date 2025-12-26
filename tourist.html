@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Explore the best Raozan Tourist Spots. Discover historical sites, religious landmarks like Mahamuni Temple, and the natural beauty of Halda River in Raozan.">
+    <meta name="keywords" content="Raozan Tourist Spot, Raozan Tourism, Masterda Surja Sen Memorial, Halda River, Mahamuni Temple Raozan, Historical Raozan">
+    <meta name="author" content="Raozan Care">
+    <title>Raozan Tourist Spot | Explore Heritage & Beauty</title>
+
+    <meta property="og:title" content="Raozan Tourist Spot | Heritage & Tourism">
+    <meta property="og:description" content="A complete guide to the historical and natural tourist attractions in Raozan.">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --heritage-green: #065f46;
+            --heritage-gold: #b45309;
+            --glass: rgba(255, 255, 255, 0.85);
+            --bg-app: #fdfcf6; 
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            touch-action: pan-x pan-y;
+        }
+
+        /* Disable Zoom & Hide Scrollbar */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+        }
+
+        body {
+            background-color: var(--bg-app);
+            margin: 0; padding: 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            overflow-y: scroll;
+        }
+
+        body::-webkit-scrollbar { display: none; }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(6, 95, 70, 0.1);
+            padding: 16px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--heritage-green);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .slider-wrapper {
+            margin: 15px;
+            position: relative;
+            height: 220px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(6, 95, 70, 0.15);
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%; height: 100%;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .slide.active { opacity: 1; }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0; width: 100%;
+            padding: 25px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            color: white;
+        }
+
+        .search-container { padding: 0 15px; margin: 10px 0 20px; }
+        .search-box {
+            background: white;
+            border-radius: 16px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+        .search-box input {
+            border: none; outline: none; width: 100%;
+            margin-left: 12px; font-size: 0.95rem;
+        }
+
+        .place-card {
+            background: white;
+            border-radius: 24px;
+            margin: 0 15px 25px;
+            overflow: hidden;
+            border: 1px solid #f3f4f6;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+        }
+
+        .place-img { width: 100%; height: 180px; object-fit: cover; }
+
+        .place-content { padding: 20px; }
+        .place-tag {
+            font-size: 0.7rem; font-weight: 700;
+            color: var(--heritage-gold);
+            text-transform: uppercase;
+            margin-bottom: 6px; display: block;
+        }
+        .place-title { font-size: 1.25rem; font-weight: 700; color: #111827; }
+        .place-desc { font-size: 0.88rem; color: #4b5563; margin-top: 8px; line-height: 1.6; }
+        
+        .action-links {
+            margin-top: 18px;
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 15px;
+        }
+
+        .btn-map, .btn-wiki {
+            flex: 1;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-map { background: var(--heritage-green); color: white; }
+        .btn-wiki { background: #f3f4f6; color: #374151; }
+        .btn-map:active, .btn-wiki:active { transform: scale(0.96); }
+
+        /* Clean White Professional Footer */
+        footer {
+            background: #ffffff;
+            padding: 40px 20px 30px;
+            color: #6b7280;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 20px;
+        }
+        .footer-logo { 
+            color: var(--heritage-green); 
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            margin-bottom: 12px; 
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .social-icons { display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; }
+        .social-icons i { font-size: 1.2rem; color: #9ca3af; transition: color 0.2s; }
+        .social-icons i:hover { color: var(--heritage-green); }
+        .footer-hr { border: 0; border-top: 1px solid #f3f4f6; margin: 20px 0; }
+        .copy-info { font-size: 0.75rem; color: #9ca3af; letter-spacing: 0.5px; }
+
+        .no-select { -webkit-user-select: none; user-select: none; }
+    </style>
+</head>
+<body class="no-select" oncontextmenu="return false;">
+
+    <header>
+        <h1>Explore Raozan</h1>
+    </header>
+
+    <main class="max-w-md mx-auto">
+        
+        <div class="slider-wrapper">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?auto=format&fit=crop&w=800&q=80');">
+                <div class="slide-overlay">
+                    <h2 class="font-bold text-lg">Masterda Surja Sen Memorial</h2>
+                    <p class="text-xs opacity-90">Honoring the hero of anti-British movement</p>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1623057000739-386880db9933?auto=format&fit=crop&w=800&q=80');">
+                <div class="slide-overlay">
+                    <h2 class="font-bold text-lg">Halda River Heritage</h2>
+                    <p class="text-xs opacity-90">Nature's unique fish breeding sanctuary</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search text-emerald-600"></i>
+                <input type="text" id="searchInput" onkeyup="filterPlaces()" placeholder="Find a Raozan tourist spot...">
+            </div>
+        </div>
+
+        <div id="placesContainer">
+            <article class="place-card" data-location="Pahartali">
+                <img src="https://images.unsplash.com/photo-1590050751117-2c8a937b919d?auto=format&fit=crop&w=800&q=80" class="place-img" alt="Mahamuni Temple Raozan">
+                <div class="place-content">
+                    <span class="place-tag">Spiritual • 100+ Years Old</span>
+                    <h3 class="place-title">Mahamuni Temple</h3>
+                    <p class="place-desc">A cornerstone of Buddhist heritage in Raozan, famous for its ancient architecture and peaceful atmosphere.</p>
+                    <div class="action-links">
+                        <a href="https://www.google.com/maps/search/Mahamuni+Buddhist+Temple+Raozan" target="_blank" class="btn-map">
+                            <i class="fas fa-location-dot"></i> Map
+                        </a>
+                        <a href="https://en.wikipedia.org/wiki/Raozan_Upazila" target="_blank" class="btn-wiki">
+                            <i class="fab fa-wikipedia-w"></i> History
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="place-card" data-location="Noapara">
+                <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=800&q=80" class="place-img" alt="Halda River Raozan">
+                <div class="place-content">
+                    <span class="place-tag">Nature • Ecological</span>
+                    <h3 class="place-title">Halda River Bank</h3>
+                    <p class="place-desc">Famous globally as the only natural carp breeding river. A scenic spot for ecotourism and boat trips.</p>
+                    <div class="action-links">
+                        <a href="https://www.google.com/maps/search/Halda+River+Raozan" target="_blank" class="btn-map">
+                            <i class="fas fa-location-dot"></i> Map
+                        </a>
+                        <a href="https://en.wikipedia.org/wiki/Halda_River" target="_blank" class="btn-wiki">
+                            <i class="fab fa-wikipedia-w"></i> History
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="place-card" data-location="Gohira">
+                <img src="https://images.unsplash.com/photo-1599387737281-80753748283c?auto=format&fit=crop&w=800&q=80" class="place-img" alt="Surja Sen House Raozan">
+                <div class="place-content">
+                    <span class="place-tag">Historical • Museum</span>
+                    <h3 class="place-title">Surja Sen Memorial</h3>
+                    <p class="place-desc">The birthplace of Masterda Surja Sen. A must-visit for history lovers exploring the anti-British revolution.</p>
+                    <div class="action-links">
+                        <a href="https://www.google.com/maps/search/Masterda+Surja+Sen+Complex+Raozan" target="_blank" class="btn-map">
+                            <i class="fas fa-location-dot"></i> Map
+                        </a>
+                        <a href="https://en.wikipedia.org/wiki/Surya_Sen" target="_blank" class="btn-wiki">
+                            <i class="fab fa-wikipedia-w"></i> History
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <footer>
+            <span class="footer-logo">Raozan Tourist Hub</span>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="flex justify-center gap-6 text-[10px] font-bold uppercase tracking-[2px] text-gray-400 mb-6">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Support</a>
+            </div>
+            <hr class="footer-hr">
+            <p class="copy-info">© 2025 Raozan Care. All rights reserved.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function nextSlide() {
+            if(slides.length > 0) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+        }
+        setInterval(nextSlide, 5000);
+
+        function filterPlaces() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.place-card');
+
+            cards.forEach(card => {
+                const location = card.getAttribute('data-location').toLowerCase();
+                const title = card.querySelector('.place-title').innerText.toLowerCase();
+                
+                if (location.includes(query) || title.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        document.onkeydown = (e) => {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74))) return false;
+        };
+
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

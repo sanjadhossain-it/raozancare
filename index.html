@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Raozan Care | Trusted Emergency Services & Blood Donor Registry</title>
+    <meta name="description" content="Raozan Care is the leading emergency helpline for Raozan. Find blood donors, hospitals, ambulance services, police, and fire services instantly.">
+    <meta name="keywords" content="Raozan Care, Raozan Blood Donor, Raozan Emergency, Raozan Hospital, Raozan Ambulance, Raozan Helpline, Raozan Fire Service, Raozan Police Number">
+    <meta name="author" content="Raozan Care">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Raozan Care | Emergency Services Helpline">
+    <meta property="og:description" content="Find vital emergency services in Raozan including Blood, Hospital, and Ambulance contact information.">
+    <meta property="og:image" content="https://i.ibb.co/zhVdD60p/logo.png">
+    <meta property="og:url" content="https://raozancare.com">
+    <meta property="og:type" content="website">
+
+    <meta name="google-site-verification" content="GktHNwzZuztiJucJxPKL4EeEKmU2nCHuqr9RO3F5jC0" />
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/zhVdD60p/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0f172a;
+            /* Deep Navy Premium */
+            --accent: #ef4444;
+            /* Vibrant Emergency Red */
+            --bg-calm: #f1f5f9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+            box-sizing: border-box;
+        }
+
+        input,
+        textarea,
+        select {
+            -webkit-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-calm);
+            background-image: radial-gradient(at 0% 0%, rgba(44, 95, 120, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(229, 57, 53, 0.05) 0px, transparent 50%);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .glass-nav {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky;
+            top: 0;
+            ;
+            height: 65px;
+            z-index: 2000;
+            padding-top: 15px;
+            /* Vertical padding */
+
+            /* THE FIXES BELOW */
+            display: flex;
+            align-items: center;
+            /* Centers items vertically (top to bottom) */
+            justify-content: center;
+            /* Centers items horizontally (left to right) */
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+        .nav-brand img {
+            height: 42px;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+        }
+
+        .nav-brand span {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.4rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            max-width: 95%;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.03);
+            padding: 5px;
+            border-radius: 50px;
+            width: fit-content;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* GLASS EFFECT ON ACTIVE/HOVER */
+        .nav-link:hover {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-link.active {
+            background: var(--white);
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(5px);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        /* --- NEWS BAR --- */
+        .top-wrapper {
+            padding: 20px;
+        }
+
+        .news-bar {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--white);
+            display: flex;
+            align-items: center;
+        }
+
+        .news-bar marquee {
+            color: var(--primary);
+        }
+
+        .ad-card {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 24px;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border: 4px solid var(--white);
+        }
+
+        .ad-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        /* --- PREMIUM SERVICE CARDS --- */
+        .services-section {
+            padding: 10px 20px;
+        }
+
+        .section-label {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 20px 10px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            background: #fff;
+        }
+
+        .icon-box {
+            width: 55px;
+            height: 55px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        .icon-red {
+            color: #ef4444;
+            background: #fee2e2;
+        }
+
+        .icon-blue {
+            color: #3b82f6;
+            background: #dbeafe;
+        }
+
+        .icon-green {
+            color: #10b981;
+            background: #d1fae5;
+        }
+
+        .icon-orange {
+            color: #f59e0b;
+            background: #fef3c7;
+        }
+
+        .service-card span {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        /* --- PREMIUM FORMS --- */
+        .donor-box,
+        .content-section,
+        .faq-section,
+        .disclaimer-section {
+            margin: 25px 20px;
+            background: var(--white);
+            border-radius: 28px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--white);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #f1f5f9;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            background: #f8fafc;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(15, 23, 42, 0.05);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
+        }
+
+        .btn:hover {
+            background: #000;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* --- FAQ & TEXT --- */
+        .faq-item {
+            background: #f8fafc;
+            margin-bottom: 12px;
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #edf2f7;
+        }
+
+        .faq-question {
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .content-text {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .footer {
+            padding: 40px 20px 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* --- NEW STYLES --- */
+        .disclaimer-section {
+            border-left: 5px solid var(--accent);
+            padding: 20px;
+        }
+
+        .disclaimer-text {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: var(--accent);
+        }
+
+        .whatsapp-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+            z-index: 1001;
+            text-decoration: none;
+            transition: 0.4s;
+        }
+
+        .whatsapp-fab:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        #toast {
+            visibility: hidden;
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            z-index: 3000;
+            font-weight: 700;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        #toast.show {
+            visibility: visible;
+            animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes slideUp {
+            from {
+                bottom: -50px;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 40px;
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-grid {
+                gap: 10px;
+            }
+
+            .service-card {
+                padding: 15px 5px;
+                border-radius: 15px;
+            }
+
+            .icon-box {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+
+            .nav-link {
+                padding: 8px 12px;
+                font-size: 0.65rem;
+            }
+
+            .nav-brand span {
+                font-size: 1.1rem;
+            }
+
+            .nav-brand {
+                display: flex;
+                /* Puts items in a row */
+                align-items: center;
+                /* Aligns logo and text vertically */
+                gap: 10px;
+                /* Adds space between logo and text */
+                text-decoration: none;
+                /* Removes underline from link */
+            }
+
+            .nav-brand img {
+                height: 40px;
+                /* Adjust logo size as needed */
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+    <nav class="glass-nav">
+        <a href="index.html" class="nav-brand flex items-center gap-2">
+            <img src="https://i.ibb.co/XrRrT9FD/logo-typo.webp" alt="Raozan Care Logo" class="h-10 w-auto">
+            <span class="text-2xl font-bold text-slate-700"></span>
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="top-wrapper">
+            <div class="news-bar">
+                <marquee id="newsText" scrollamount="4">Welcome to Raozan Helpline - Your Trusted Community Companion...</marquee>
+            </div>
+            <div id="adsContainer" class="ad-card">
+                <img id="adImage" src="https://i.ibb.co/KzGjHDDq/imgx.webp" data-src="https://i.ibb.co/KzGjHDDq/imgx.webp" alt="Service Banner" style="width: 100%; height: 190px; background-color: #f0f0f0;">
+            </div>
+        </div>
+
+        <div class="services-section">
+            <div class="section-label"><i class="fas fa-grid-2"></i> Quick Services</div>
+            <div class="service-grid">
+                <a href="hospital.html" class="service-card">
+                    <div class="icon-box icon-blue"><i class="fas fa-hospital"></i></div>
+                    <span>Hospital</span>
+                </a>
+                <a href="blood.html" class="service-card">
+                    <div class="icon-box icon-red"><i class="fas fa-tint"></i></div>
+                    <span>Blood</span>
+                </a>
+                <a href="ambulance.html" class="service-card">
+                    <div class="icon-box icon-blue"><i class="fas fa-ambulance"></i></div>
+                    <span>Ambulance</span>
+                </a>
+                <a href="police.html" class="service-card">
+                    <div class="icon-box icon-blue" style="color:#1a237e; background:#E8EAF6;"><i class="fas fa-shield-alt"></i></div>
+                    <span>Police</span>
+                </a>
+                <a href="fireservice.html" class="service-card">
+                    <div class="icon-box icon-orange"><i class="fas fa-fire"></i></div>
+                    <span>Fire Service</span>
+                </a>
+                <a href="doctor.html" class="service-card">
+                    <div class="icon-box icon-green"><i class="fas fa-user-md"></i></div>
+                    <span>Doctors</span>
+                </a>
+                <a href="tourist.html" class="service-card">
+                    <div class="icon-box icon-green" style="color:#2ecc71; background:#E8F5E9;"><i class="fas fa-map-marked-alt"></i></div>
+                    <span>Tourist Spots</span>
+                </a>
+                <a href="electric.html" class="service-card">
+                    <div class="icon-box icon-orange" style="color:#f39c12; background:#FFF3E0;"><i class="fa-solid fa-plug-circle-bolt"></i></div>
+                    <span>Electric</span>
+                </a>
+                <a href="education.html" class="service-card">
+                    <div class="icon-box icon-blue" style="color:#0babf5; background:hsl(220, 9%, 94%);"><i class="fa-solid fa-user-graduate"></i></div>
+                    <span>Education</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="donor-box">
+            <div class="section-label"><i class="fas fa-user-plus"></i> Donor Registration</div>
+            <form id="regForm">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="FULL NAME (ENGLISH)" required oninput="this.value = this.value.toUpperCase().replace(/[^A-Z\s]/g, '')">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="dob" placeholder="DATE OF BIRTH" onfocus="(this.type='date')" required>
+                </div>
+                <div class="form-group">
+                    <select id="gender" required>
+                        <option value="">SELECT GENDER</option>
+                        <option value="MALE">MALE</option>
+                        <option value="FEMALE">FEMALE</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select id="bloodgroup" required>
+                        <option value="">SELECT BLOOD GROUP</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="address" placeholder="FULL ADDRESS (CAPITAL)" required oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9\s,.-]/g, '')"></textarea>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" maxlength="11" minlength="11" pattern="01[0-9]{9}" placeholder="MOBILE NUMBER (01XXXXXXXXX)" required oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Phone number must start with 01 and be exactly 11 digits long.">
+                </div>
+                <div class="form-group">
+                    <select id="status" required>
+                        <option value="AVAILABLE">STATUS: AVAILABLE</option>
+                        <option value="NOT AVAILABLE">STATUS: NOT AVAILABLE</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" id="submitBtn">REGISTER AS DONOR</button>
+            </form>
+        </div>
+
+        <div class="faq-section">
+            <div class="section-label"><i class="fas fa-question-circle"></i> FAQ</div>
+            <div class="faq-item">
+                <div class="faq-question">How do I find a blood donor?</div>
+                <div class="faq-answer">Click on the 'Blood' icon in the services section to view available donors in our area.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is this service free?</div>
+                <div class="faq-answer">Yes, Raozan Care is a community initiative providing information free of charge.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How can I update or delete Donor Profile?</div>
+                <div class="faq-answer">Click on the 'Blood' icon then on top corner you will see 'Register' icon, below you can update or delete your status or profile.</div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-label"><i class="fas fa-history"></i> Our Journey</div>
+            <div class="content-text">
+                Raozan Care was established in 2020 with a mission to bridge the gap between emergency service providers and the citizens of Raozan. Our goal is to ensure that no one in our community feels helpless during a crisis.
+            </div>
+        </div>
+
+        <div class="disclaimer-section">
+            <div class="section-label" style="color: var(--accent);"><i class="fas fa-exclamation-triangle"></i> Professional Disclaimer</div>
+            <div class="disclaimer-text">
+                The information provided by Raozan Care is for general informational purposes only.
+                <strong>Medical Advice:</strong> We do not provide medical health advice. Always seek the advice of a qualified health provider regarding medical conditions.
+                <strong>Blood Donors:</strong> While we maintain a registry, we offer <strong>no guarantee</strong> on finding a blood donor at any specific time. Users interact with donors at their own discretion.
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2025 RAOZAN CARE<br>
+            <span style="opacity: 0.6; font-size: 0.75rem; letter-spacing: 1px;">PREMIUM COMMUNITY SERVICE</span>
+
+            <div class="footer-nav">
+                <a href="privacy.html">Privacy Policy</a>
+                <span>|</span>
+                <a href="contact.html">Contact Us</a>
+                <span>|</span>
+                <a href="about.html">About Us</a>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/8801601764777" class="whatsapp-fab" target="_blank" aria-label="Contact on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <div id="toast"></div>
+
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWUbwSAu9XJMyAqv93OwjGO4v-9sp9ccoWXYcWVve-Ff2rfnCx6ZqcjUzAfUY-fUnT6g/exec";
+
+        function showToast(msg, isWarning = false) {
+            const t = document.getElementById("toast");
+            t.innerText = msg;
+            t.style.backgroundColor = isWarning ? "#ef4444" : "#0f172a";
+            t.classList.add("show");
+            setTimeout(() => t.classList.remove("show"), 4000);
+        }
+
+        async function loadAdsAndNews() {
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: JSON.stringify({ action: "getAdsNews" })
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    if (result.news && result.news.length > 0) {
+                        document.getElementById('newsText').innerText = result.news.join(" | ");
+                    }
+                    if (result.ads && result.ads.length > 0) {
+                        const ad = result.ads[0];
+                        const adImg = document.getElementById('adImage');
+                        if (ad.image) {
+                            adImg.src = ad.image;
+                            adImg.style.display = "block";
+                            adImg.onclick = () => {
+                                if (ad.url) window.open(ad.url, '_blank');
+                            };
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error("Error loading ads:", error);
+                document.getElementById('newsText').innerText = "Welcome to Raozan Helpline.";
+            }
+        }
+
+        document.getElementById('regForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const dobVal = document.getElementById('dob').value;
+            const dob = new Date(dobVal);
+            const phone = document.getElementById('phone').value;
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const m = today.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) { age--; }
+
+            if (age < 18) {
+                showToast("🌟 You must be 18 to donate blood.", true);
+                return;
+            }
+
+            if (!phone.startsWith("01") || phone.length !== 11) {
+                showToast("❌ Invalid Phone! Must be 11 digits.", true);
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            showToast("⌛ Registering...");
+
+            const formData = {
+                action: "register",
+                name: document.getElementById('name').value,
+                dob: dobVal,
+                gender: document.getElementById('gender').value,
+                bloodgroup: document.getElementById('bloodgroup').value,
+                address: document.getElementById('address').value,
+                phone: phone,
+                status: document.getElementById('status').value
+            };
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: JSON.stringify(formData)
+                });
+                showToast("✅ Registered Successfully!");
+                document.getElementById('regForm').reset();
+            } catch (error) {
+                showToast("❌ Connection Error.", true);
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+
+        window.onload = loadAdsAndNews;
+    </script>
+</body>
+
+</html>

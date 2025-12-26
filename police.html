@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Police | Raozan Emergency Services & Contact Hub</title>
+    
+    <meta name="description" content="Official emergency directory for Raozan Police. Get instant access to Raozan Model Police Station contact numbers, locations, and 24/7 emergency assistance.">
+    <meta name="keywords" content="Raozan Police, Raozan Police Station Number, Raozan Thana Contact, Emergency Police Raozan, Chittagong Police Helpline">
+    <meta name="author" content="Raozan Police Hub">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.com/">
+
+    <meta property="og:title" content="Police | Raozan Emergency Information">
+    <meta property="og:description" content="24/7 Verified Contact Directory for Raozan Police Stations.">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "GovernmentOrganization",
+      "name": "Raozan Police Hub",
+      "description": "Information directory for police services in Raozan, Chattogram.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Raozan",
+        "addressRegion": "Chattogram",
+        "addressCountry": "BD"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "999",
+        "contactType": "emergency",
+        "areaServed": "Raozan",
+        "availableLanguage": ["Bengali", "English"]
+      }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a; 
+            --accent: #2563eb;
+            --bg-body: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --glass: rgba(255, 255, 255, 0.75);
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0; /* Outer background */
+            color: var(--text-main);
+            margin: 0; padding: 0;
+            display: flex; justify-content: center;
+        }
+
+        /* Mobile Interface Shell */
+        main { 
+            width: 100%; 
+            max-width: 480px; 
+            background: var(--bg-body); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        /* Glassmorphism Header */
+        header {
+            width: 100%; 
+            max-width: 480px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: var(--primary); 
+            padding: 16px; 
+            text-align: center;
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        header h1 { 
+            margin: 0; 
+            font-size: 1.25rem; 
+            letter-spacing: -0.5px; 
+            font-weight: 800; 
+            text-transform: uppercase;
+        }
+
+        /* Banner Slider */
+        .banner-wrapper { width: 100%; padding: 20px; }
+        .slider-card {
+            width: 100%; height: 200px; border-radius: 24px;
+            overflow: hidden; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            background: #cbd5e1;
+        }
+        .slider-img { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.5s ease-in-out; }
+
+        /* Search Section */
+        .search-container { width: 90%; margin-bottom: 25px; }
+        .search-bar {
+            width: 100%; padding: 16px 20px; border: 1px solid #e2e8f0;
+            border-radius: 16px; font-size: 0.95rem; background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02); outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-bar:focus { border-color: var(--accent); }
+
+        /* Station Cards */
+        .station-list { width: 90%; display: flex; flex-direction: column; gap: 15px; }
+        .station-card {
+            background: var(--card-bg); border-radius: 20px; padding: 15px;
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #f1f5f9;
+        }
+        .station-info { display: flex; align-items: center; gap: 14px; }
+        .station-thumb { width: 56px; height: 56px; border-radius: 14px; object-fit: cover; }
+        .station-details h3 { margin: 0; font-size: 1rem; font-weight: 700; color: #1e293b; }
+        .station-details p { margin: 2px 0 0; font-size: 0.8rem; color: var(--text-muted); }
+
+        .call-action {
+            background: linear-gradient(135deg, var(--accent), var(--primary)); 
+            width: 44px; height: 44px;
+            border-radius: 12px; display: flex; align-items: center;
+            justify-content: center; text-decoration: none;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+        .call-action svg { width: 20px; height: 20px; fill: white; }
+
+        /* AdSense Placeholder (Contextual Content) */
+        .ads-box {
+            width: 90%; margin: 20px 0; padding: 15px; background: #f1f5f9;
+            border-radius: 12px; border: 1px dashed #cbd5e1; text-align: center;
+            font-size: 0.8rem; color: #94a3b8;
+        }
+
+        /* FAQ & Disclaimer Section */
+        .content-section { width: 90%; margin-top: 30px; }
+        .content-section h2 { font-size: 1.1rem; margin-bottom: 12px; font-weight: 700; }
+        
+        .faq-item { background: white; border-radius: 16px; padding: 15px; margin-bottom: 10px; border: 1px solid #f1f5f9; }
+        .faq-item b { display: block; font-size: 0.9rem; margin-bottom: 4px; color: #1e293b; }
+        .faq-item p { margin: 0; font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+        .disclaimer-box { background: #fff; padding: 15px; border-radius: 16px; border: 1px solid #f1f5f9; }
+        .disclaimer { font-size: 0.75rem; color: var(--text-muted); text-align: justify; line-height: 1.6; }
+
+        /* Footer */
+        footer {
+            width: 100%; background: white; padding: 30px 20px;
+            text-align: center; border-top: 1px solid #f1f5f9; margin-top: auto;
+        }
+        .footer-links { margin-bottom: 12px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 500; }
+        .footer-links a:hover { color: var(--accent); }
+        .copyright { font-size: 0.75rem; color: #94a3b8; margin-top: 10px; }
+
+        /* Smooth Transitions */
+        .station-card, .call-action { transition: transform 0.2s ease; }
+        .station-card:active { transform: scale(0.98); }
+    </style>
+</head>
+<body>
+
+<main>
+    <header>
+        
+        <h1>Police</h1>
+    </header>
+
+    
+    <section class="banner-wrapper">
+        <div class="slider-card">
+            <img id="slider" class="slider-img" src="https://images.unsplash.com/photo-1594142461690-3484f275939e?auto=format&fit=crop&w=800&q=80" alt="Raozan Police Operations">
+        </div>
+    </section>
+
+    <div class="search-container">
+        <input type="text" class="search-bar" id="searchInput" placeholder="Search area or station..." onkeyup="filterStations()">
+    </div>
+
+    <div class="ads-box">Safety Information Dashboard</div>
+
+    <section class="station-list" id="stationList">
+        <article class="station-card" data-location="Raozan Center">
+            <div class="station-info">
+                <img src="https://images.unsplash.com/photo-1517055743845-842217c4587a?auto=format&fit=crop&w=150&q=80" class="station-thumb" alt="Model Thana">
+                <div class="station-details">
+                    <h3>Raozan Model Station</h3>
+                    <p>Main Road, Raozan</p>
+                </div>
+            </div>
+            <a href="tel:01713373267" class="call-action" aria-label="Call Now">
+                <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" /></svg>
+            </a>
+        </article>
+
+        <article class="station-card" data-location="East Raozan">
+            <div class="station-info">
+                <img src="https://images.unsplash.com/photo-1506704081056-9e651586790a?auto=format&fit=crop&w=150&q=80" class="station-thumb" alt="Police Post">
+                <div class="station-details">
+                    <h3>East Raozan Post</h3>
+                    <p>Pahartali, Raozan</p>
+                </div>
+            </div>
+            <a href="tel:01713373267" class="call-action" aria-label="Call Now">
+                <svg viewBox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" /></svg>
+            </a>
+        </article>
+    </section>
+
+    <section class="content-section">
+        <h2>Emergency FAQ</h2>
+        <div class="faq-item">
+            <b>How to report an incident?</b>
+            <p>For immediate danger, dial 999. For local complaints, contact Raozan Model Station directly at 01713373267.</p>
+        </div>
+        <div class="faq-item">
+            <b>Is this an official app?</b>
+            <p>This is a community-driven information hub providing verified contact data for public safety awareness.</p>
+        </div>
+    </section>
+
+    <section class="content-section" style="margin-bottom: 30px;">
+        <h2>Legal Disclaimer</h2>
+        <div class="disclaimer-box">
+            <div class="disclaimer">
+                The information on the Raozan Police Information Hub is provided for informational purposes only. We aim for high accuracy, but contact details may change. Please confirm with the Bangladesh Police official directory for legal matters.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <nav class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <span>•</span>
+            <a href="#">Contact</a>
+            <span>•</span>
+            <a href="#">About Us</a>
+        </nav>
+        <div class="copyright">
+            &copy; 2025 Raozan Police Hub. All Rights Reserved.<br>
+            Designed for Community Safety.
+        </div>
+    </footer>
+</main>
+
+<script>
+    /* Logic - Kept Exactly Same */
+    const bannerImages = [
+        "https://dainikpurbokone.net/wp-content/uploads/2024/10/Raozan-Thana.jpg",
+        "https://dainikpurbokone.net/wp-content/uploads/2024/10/Raozan-Thana.jpg"
+    ];
+    let currentIdx = 0;
+    const slider = document.getElementById('slider');
+    setInterval(() => {
+        currentIdx = (currentIdx + 1) % bannerImages.length;
+        slider.style.opacity = 0;
+        setTimeout(() => {
+            slider.src = bannerImages[currentIdx];
+            slider.style.opacity = 1;
+        }, 500);
+    }, 4500);
+
+    function filterStations() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const cards = document.getElementsByClassName('station-card');
+        for (let i = 0; i < cards.length; i++) {
+            let location = cards[i].getAttribute('data-location').toLowerCase();
+            cards[i].style.display = location.includes(input) ? "flex" : "none";
+        }
+    }
+</script>
+
+</body>
+</html>

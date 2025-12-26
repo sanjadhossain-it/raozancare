@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Emergency Directory | Noapara Blood Bank</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://i.ibb.co/fYVnDvZS/blood-donation-logo-blood-bank-png-favpng-Vjmcn-Sqewheyp0j-S0giry-SXpt.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E53935;
+            --primary-dark: #B71C1C;
+            --primary-light: #FFEBEE;
+            --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #ffebee 100%);
+            --text-main: #1A1C1E;
+            --text-muted: #65676B;
+            --glass: rgba(255, 255, 255, 0.85);
+            --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            --radius-lg: 24px;
+            --radius-md: 16px;
+        }
+
+        /* CSS to prevent text selection */
+        .no-select {
+            -webkit-user-select: none;
+            /* Safari */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* IE 10+ */
+            user-select: none;
+            /* Standard syntax */
+        }
+
+        .no-highlight {
+            -webkit-touch-callout: none;
+            /* iOS Safari: stops callout menu */
+            -webkit-user-select: none;
+            /* Safari/Chrome/Opera/Edge */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently supported by almost all browsers */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+
+
+        /* --- NAVIGATION --- */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            padding: 12px 0;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+
+        .nav-brand img {
+            height: 32px;
+        }
+
+        .nav-brand span {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 1.1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-link.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(229, 57, 53, 0.2);
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .hero-title h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .hero-title p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* --- ACCORDION SYSTEM --- */
+        .acc-group {
+            background: white;
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .acc-trigger {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .acc-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .acc-title i {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .chevron-icon {
+            font-size: 0.85rem;
+            color: #BDBDBD;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .acc-group.active {
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .acc-group.active .chevron-icon {
+            transform: rotate(180deg);
+            color: var(--primary);
+        }
+
+        .acc-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            background: #FAFAFA;
+        }
+
+        .acc-group.active .acc-panel {
+            max-height: 1000px;
+            transition: max-height 0.8s ease-in-out;
+        }
+
+        .contact-row {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #F0F0F0;
+        }
+
+        .contact-info b {
+            display: block;
+            font-size: 0.9rem;
+            color: #2D3436;
+            margin-bottom: 3px;
+        }
+
+        .contact-info span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* --- ACTION BUTTONS --- */
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-base {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+
+        .call-action {
+            background: #27AE60;
+            color: white;
+            box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
+        }
+
+        .profile-action {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(229, 57, 53, 0.2);
+        }
+
+        .btn-base:active {
+            transform: scale(0.9);
+            opacity: 0.9;
+        }
+
+        /* --- FOOTER HOTLINE --- */
+        .emergency-footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            background: white;
+            border-radius: var(--radius-md);
+            border: 2px dashed var(--primary-light);
+            box-shadow: var(--card-shadow);
+        }
+
+        .emergency-footer p {
+            margin: 0 0 10px 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .emergency-footer b {
+            color: var(--primary);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 900;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .footer-call-icon {
+            animation: pulse 2s infinite;
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body class="no-select no-highlight">
+
+    <nav class="glass-nav">
+        <a href="index.html" class="nav-brand">
+            <img src="https://i.ibb.co/fYVnDvZS/blood-donation-logo-blood-bank-png-favpng-Vjmcn-Sqewheyp0j-S0giry-SXpt.png"
+                alt="Logo">
+            <span>Noapara Blood Bank</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="emergency.html" class="nav-link active">EMERGENCY</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="hero-title">
+            <h1>Emergency Directory</h1>
+            <p>Instant access to vital services in Noapara</p>
+        </div>
+
+        <div class="acc-group">
+            <div class="acc-trigger" onclick="toggleAcc(this)">
+                <div class="acc-title"><i class="fas fa-shield-alt"></i> Police Station</div>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="acc-panel">
+                <div class="contact-row">
+                    <div class="contact-info"><b>Noapara Police Outpost</b><span>Sikhak Complex Road</span></div>
+                    <a href="tel:01320107000" class="btn-base call-action"><i class="fas fa-phone-alt"></i></a>
+                </div>
+                <div class="contact-row">
+                    <div class="contact-info"><b>Raozan Police Station</b><span>Raozan Sadar</span></div>
+                    <a href="tel:01713373639" class="btn-base call-action"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="acc-group">
+            <div class="acc-trigger" onclick="toggleAcc(this)">
+                <div class="acc-title"><i class="fas fa-fire-extinguisher"></i> Fire Service</div>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="acc-panel">
+                <div class="contact-row">
+                    <div class="contact-info"><b>Raozan Fire Station</b><span>24/7 Rapid Response</span></div>
+                    <a href="tel:01708399275" class="btn-base call-action"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="acc-group">
+            <div class="acc-trigger" onclick="toggleAcc(this)">
+                <div class="acc-title"><i class="fas fa-hospital-user"></i> Hospitals</div>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="acc-panel">
+                <div class="contact-row" onclick="location.href='pionnerhospital.html'">
+
+                    <div class="contact-info"><b>Pioneer Hospital</b><span>Noapara Patherhat</span></div>
+                    <div class="action-btns">
+                        <a href="pionnerhospital.html" class="btn-base profile-action" title="View Profile"><i
+                                class="fas fa-house-medical"></i></a>
+                        <a href="tel:01XXXXXXXXX" class="btn-base call-action"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="contact-row" onclick="location.href='cosmichospital.html'">
+                    <div class="contact-info"><b>Cosmic Hospital</b><span>Cosmic Hospital</span></div>
+                    <div class="action-btns">
+                        <a href="cosmichospital.html" class="btn-base profile-action" title="View Profile"><i
+                                class="fas fa-house-medical"></i></a>
+                        <a href="tel:017XXXXXXXX" class="btn-base call-action"><i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="acc-group">
+            <div class="acc-trigger" onclick="toggleAcc(this)">
+                <div class="acc-title"><i class="fas fa-university"></i> Banks</div>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="acc-panel">
+                <div class="contact-row">
+                    <div class="contact-info"><b>Al-Arafah Islami Bank</b><span>Noapara Branch</span></div>
+                    <a href="tel:01841123004" class="btn-base call-action"><i class="fas fa-phone-alt"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="emergency-footer">
+            <p>National Emergency Service</p>
+            <b><i class="fas fa-phone-volume footer-call-icon"></i> 999</b>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        function toggleAcc(header) {
+            const group = header.parentElement;
+            const wasActive = group.classList.contains('active');
+
+            // Close all other groups for a clean look
+            document.querySelectorAll('.acc-group').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Toggle current
+            if (!wasActive) {
+                group.classList.add('active');
+            }
+        }
+        // 1. Disable Right-Click (Context Menu)
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert("Right-click is disabled to protect content.");
+        });
+
+        // 2. Disable Copy Shortcut (Ctrl+C / Cmd+C)
+        document.addEventListener('keydown', function (e) {
+            // Check for Ctrl (or Cmd on Mac) + C
+            if ((e.ctrlKey || e.metaKey) && e.key === 'c') {
+                e.preventDefault();
+                alert("Copying is disabled.");
+            }
+
+            // 3. Optional: Disable Print Screen (doesn't stop software, but stops the key)
+            if (e.key === 'PrintScreen') {
+                navigator.clipboard.writeText(""); // Clear clipboard
+                alert("Screenshots are discouraged.");
+            }
+        });
+
+    </script>
+</body>
+
+</html>

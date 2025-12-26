@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Pioneer Hospital and Diagnostic Center LTD | Premium Healthcare Noapara</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/Ndrx7JS9/pionnerlogo.webp">
+
+    <meta name="description"
+        content="Official portal for Pioneer Hospital and Diagnostic Center LTD. Specialized doctors, advanced diagnostics, and 24/7 emergency services in Raozan, Noapara.">
+    <meta name="keywords" content="Pioneer Hospital, Noapara Hospital, Hospital in Raozan, Diagnostic Center Raozan">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0077b6;
+            --primary-dark: #023e8a;
+            --primary-light: #caf0f8;
+            --bg: #f0f8ff;
+            --surface: #ffffff;
+            --surface-glass: rgba(255, 255, 255, 0.85);
+            --text-main: #001d3d;
+            --text-muted: #537188;
+            --accent: #00b4d8;
+            --success: #00b894;
+            --danger: #ff7675;
+            --radius-xl: 24px;
+            --shadow-sm: 0 2px 8px rgba(0, 119, 182, 0.05);
+            --shadow-lg: 0 10px 30px -10px rgba(0, 119, 182, 0.15);
+            --card-grad: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* --- HEADER --- */
+        .app-header {
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            background: var(--surface-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(173, 216, 230, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .main-nav {
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-identity {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-container img {
+            width: 42px;
+            height: auto;
+            display: block;
+        }
+
+        .brand-text h1 {
+            font-size: 1.1rem;
+            margin: 0;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-text span {
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 3px;
+            display: block;
+        }
+
+        .btn-emergency-call {
+            background: var(--primary-light);
+            color: var(--primary);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border: 1px solid #bde0fe;
+        }
+
+        /* --- HERO SLIDER --- */
+        .hero-slider {
+            width: 100%;
+            height: 240px;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .slider-wrapper {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .slide {
+            width: 33.3333%;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+            width: 20px;
+            border-radius: 10px;
+        }
+
+        /* --- ACTION HUB --- */
+        .action-hub {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            padding: 0 20px;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .action-card {
+            background: var(--surface);
+            padding: 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .action-card i {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        .action-card span {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        .section-label {
+            padding: 30px 20px 15px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+
+        /* --- HORIZONTAL SCROLL --- */
+        .horizontal-scroll {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 0 20px 20px;
+            scrollbar-width: none;
+        }
+
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .diag-pill {
+            min-width: 105px;
+            background: var(--surface);
+            padding: 18px 12px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #e0efff;
+            text-decoration: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .diag-pill i {
+            font-size: 1.4rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .diag-pill span {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: block;
+        }
+
+        .diag-pill .diag-call {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* --- SEARCH --- */
+        .search-section {
+            padding: 0 20px 20px;
+        }
+
+        .search-box-wrapper {
+            background: var(--surface);
+            border-radius: 16px;
+            border: 1px solid #dbeafe;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .search-select {
+            width: 100%;
+            padding: 14px 0;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-weight: 600;
+            color: var(--text-main);
+            outline: none;
+            appearance: none;
+        }
+
+        /* --- PERFECTLY ALIGNED DOCTOR CARDS --- */
+        .doctor-container {
+            padding: 0 20px 30px;
+        }
+
+        .doc-card {
+            background: var(--card-grad);
+            border-radius: 22px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ffffff;
+            box-shadow: var(--shadow-lg);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .doc-header {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f7ff;
+        }
+
+        .doc-avatar {
+            position: relative;
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            background: #f1f8ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.6rem;
+            border: 1px solid #e0efff;
+            flex-shrink: 0;
+        }
+
+        .corner-dot {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .dot-available {
+            background: var(--success);
+            box-shadow: 0 0 5px var(--success);
+        }
+
+        .dot-away {
+            background: var(--danger);
+        }
+
+        .doc-meta {
+            flex: 1;
+        }
+
+        .doc-meta h3 {
+            margin: 0 0 4px 0;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+        }
+
+        .doc-details-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .doc-degree {
+            font-size: 0.8rem;
+            color: var(--text-main);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .doc-collage {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .doc-specialty-wrapper {
+            margin-top: 6px;
+        }
+
+        .doc-specialty-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .schedule-grid {
+            background: #fcfdfe;
+            border-radius: 14px;
+            padding: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            border: 1px solid #f0f4f8;
+        }
+
+        .s-item b {
+            display: block;
+            font-size: 0.6rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 2px;
+            letter-spacing: 0.3px;
+        }
+
+        .s-item span {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .btn-booking {
+            margin-top: 15px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 14px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+        }
+
+        /* --- FOOTER --- */
+        .site-footer {
+            background: white;
+            padding: 50px 20px 30px;
+            border-radius: 35px 35px 0 0;
+            margin-top: 20px;
+            border-top: 1px solid #eef6ff;
+        }
+
+        .f-link-card {
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            border: 1px solid #e0efff;
+            margin-bottom: 12px;
+        }
+
+        .f-link-card .icon-box {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            box-shadow: 0 3px 8px rgba(0, 119, 182, 0.1);
+        }
+
+        .emergency-banner {
+            background: linear-gradient(135deg, var(--primary), #48cae4);
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            margin: 25px 0;
+        }
+
+        /* Ensure the meta container can wrap text */
+        .doc-meta {
+            flex: 1;
+            min-width: 0;
+            /* Important for flex child text wrapping */
+        }
+
+        /* Allow headers and long text strings to break */
+        .doc-meta h3,
+        .doc-degree,
+        .doc-collage {
+            white-space: normal;
+            /* Allows natural line breaks */
+            overflow-wrap: break-word;
+            /* Breaks very long words if necessary */
+            word-break: break-word;
+            line-height: 1.4;
+            /* Adds breathing room between lines */
+        }
+
+        /* Ensure specialty tags wrap if there are multiple or long ones */
+        .doc-specialty-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+
+    <header class="app-header">
+        <nav class="main-nav">
+            <div class="brand-identity">
+                <div class="logo-container">
+                    <img src="https://i.ibb.co/Ndrx7JS9/pionnerlogo.webp" alt="Pioneer Hospital Logo">
+                </div>
+                <div class="brand-text">
+                    <h1>PIONEER HOSPITAL</h1>
+                    <span>Hospital & Diagnostics Center</span>
+                </div>
+            </div>
+            <a href="pioneeradmin.html" class="btn-emergency-call">
+                <i class="fas fa-user-shield"></i>
+            </a>
+        </nav>
+    </header>
+
+    <div class="hero-slider">
+        <div class="slider-wrapper" id="slider">
+            <div class="slide"><img src="https://i.ibb.co/KzGjHDDq/imgx.webp" alt="Slide 1"></div>
+            <div class="slide"><img src="https://i.ibb.co/QvsBC7zX/img.webp" alt="Slide 2"></div>
+            <div class="slide"><img src="https://i.ibb.co/XfgcNNz6/imgxl.webp" alt="Slide 3"></div>
+        </div>
+        <div class="slider-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <div class="action-hub">
+        <a href="tel:008801961418137" class="action-card">
+            <i class="fas fa-truck-medical"></i>
+            <span>Ambulance</span>
+        </a>
+        <a href="https://maps.google.com/?q=Pioneer+Hospital+Noapara" class="action-card">
+            <i class="fas fa-location-arrow"></i>
+            <span>Directions</span>
+        </a>
+    </div>
+
+    <div id="diagnostics" class="section-label">Diagnostic Excellence</div>
+    <div class="horizontal-scroll">
+        <a href="#" class="diag-pill"><i class="fas fa-vial"></i><span>Pathology</span>
+            <div class="diag-call">Tests Price</div>
+        </a>
+        <a href="#" class="diag-pill"><i class="fas fa-x-ray"></i><span>Digital X-Ray</span>
+            <div class="diag-call">Tests Price</div>
+        </a>
+        <a href="#" class="diag-pill"><i class="fas fa-heart-pulse"></i><span>Digital ECG</span>
+            <div class="diag-call">Tests Price</div>
+        </a>
+        <a href="#" class="diag-pill"><i class="fas fa-baby"></i><span>4D USG</span>
+            <div class="diag-call">Tests Price</div>
+        </a>
+    </div>
+
+    <div id="doctors" class="section-label">Find Your Specialist</div>
+    <div class="search-section">
+        <div class="search-box-wrapper">
+            <i class="fas fa-user-doctor" style="color: var(--primary); margin-right: 12px;"></i>
+            <select id="categorySearch" class="search-select" onchange="fetchAndFilter(this.value)">
+                <option value="All">All Specialty Categories</option>
+                <option value="MEDICINE">MEDICINE</option>
+                <option value="CARDIOLOGY">CARDIOLOGY</option>
+                <option value="NEUROLOGY">NEUROLOGY</option>
+                <option value="GASTROENTEROLOGY">GASTROENTEROLOGY</option>
+                <option value="GYNECOLOGY">GYNECOLOGY</option>
+                <option value="PEDIATRICS">PEDIATRICS</option>
+                <option value="UROLOGY">UROLOGY</option>
+                <option value="GENERAL SURGERY">GENERAL SURGERY</option>
+                <option value="ORTHOPEDICS">ORTHOPEDICS</option>
+                <option value="ENT">ENT</option>
+                <option value="DIABETOLOGY">DIABETOLOGY</option>
+                <option value="PSYCHIATRY">PSYCHIATRY</option>
+                <option value="DERMATOLOGY">DERMATOLOGY</option>
+                <option value="DENTAL">DENTAL</option>
+                <option value="EYE / OPTIC">EYE / OPTIC</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="doctor-container" id="doctorContainer">
+        <div class="loader-text" style="text-align: center; padding: 40px; color: var(--text-muted);">
+            <i class="fas fa-spinner fa-spin"></i> Loading specialist profiles...
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <span style="font-size: 1.3rem; font-weight: 800; color: var(--primary);">Pioneer Hospital</span>
+            <span style="display: block; font-size: 0.8rem; color: var(--text-muted); margin-top: 5px;">Trusted
+                Healthcare Partner since 2010</span>
+        </div>
+
+        <a href="tel:008801961418137" class="f-link-card">
+            <div class="icon-box"><i class="fas fa-headset"></i></div>
+            <div class="content"><b style="font-size: 0.9rem; display:block;">Hotline</b><span
+                    style="font-size: 0.75rem; color: var(--text-muted);">+88001511772222</span></div>
+        </a>
+
+        <a href="#" class="f-link-card">
+            <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
+            <div class="content"><b style="font-size: 0.9rem; display:block;">Our Location</b><span
+                    style="font-size: 0.75rem; color: var(--text-muted);">Patherhat, Noapara, Raozan</span></div>
+        </a>
+
+        <a href="tel:008801511772222" class="emergency-banner">
+            <div>
+                <span style="font-size: 0.65rem; opacity: 0.9; text-transform: uppercase;">24/7 Rapid Response</span>
+                <div style="font-size: 1rem; font-weight: 800;">Emergency Serial</div>
+            </div>
+            <div
+                style="background: rgba(255, 255, 255, 0.2); width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+        </a>
+
+        <div style="display: flex; justify-content: center; gap: 25px; margin: 25px 0;">
+            <a href="https://www.facebook.com/pioneerhospitalctg/" style="color: var(--primary); font-size: 1.2rem;"><i
+                    class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/8801817751509" style="color: var(--primary); font-size: 1.2rem;"><i
+                    class="fab fa-whatsapp"></i></a>
+            <a href="mailto:pioneerhospitalltdctg@gmail.com" style="color: var(--primary); font-size: 1.2rem;"><i
+                    class="fas fa-envelope"></i></a>
+        </div>
+
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid #f1f5f9;">
+            <p style="font-size: 0.7rem; color: var(--text-muted);">© 2025 Pioneer Hospital LTD. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5dltboD5KqxrzhLaKeyUySnnfyxWwqJiw4cZ0dbNjzj-mt1z6D7z5CmRLPdN2XCRVnw/exec";
+
+        // Slider Logic
+        let currentSlide = 0;
+        const totalSlides = 3;
+        const sliderWrapper = document.getElementById('slider');
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            if (!sliderWrapper) return;
+            sliderWrapper.style.transform = `translateX(-${currentSlide * (100 / totalSlides)}%)`;
+            dots.forEach((dot, index) => { dot.classList.toggle('active', index === currentSlide); });
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 4500);
+
+        function getDoctorIcon(category) {
+            const cat = String(category).toUpperCase();
+            const icons = {
+                "MEDICINE": "fa-stethoscope", "CARDIOLOGY": "fa-heart-pulse",
+                "NEUROLOGY": "fa-brain", "GASTROENTEROLOGY": "fa-bacteria",
+                "GYNECOLOGY": "fa-person-pregnant", "PEDIATRICS": "fa-baby",
+                "UROLOGY": "fa-kidneys", "GENERAL SURGERY": "fa-scalpel-path",
+                "ORTHOPEDICS": "fa-bone", "ENT": "fa-ear-listen",
+                "DIABETOLOGY": "fa-syringe", "PSYCHIATRY": "fa-head-side-virus",
+                "DERMATOLOGY": "fa-hand-dots", "DENTAL": "fa-tooth", "EYE / OPTIC": "fa-eye"
+            };
+            return icons[cat] || "fa-user-md";
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        async function fetchAndFilter(category) {
+            const container = document.getElementById('doctorContainer');
+            container.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Loading...</div>';
+
+            try {
+                const res = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: JSON.stringify({ action: "getDoctors" })
+                });
+                const result = await res.json();
+
+                if (result.success) {
+                    let data = shuffleArray(result.data);
+                    const filteredData = (category === 'All')
+                        ? data
+                        : data.filter(doc => String(doc.category).toUpperCase() === category.toUpperCase());
+
+                    renderDoctors(filteredData);
+                }
+            } catch (error) {
+                container.innerHTML = '<div style="text-align: center; padding: 20px;">Connection Error</div>';
+            }
+        }
+
+        function renderDoctors(doctors) {
+            const container = document.getElementById('doctorContainer');
+            container.innerHTML = doctors.length ? "" : '<div style="text-align: center; padding: 40px;">No specialists found.</div>';
+
+            doctors.forEach(doc => {
+                const icon = getDoctorIcon(doc.category);
+                const dotClass = (doc.status && doc.status.toLowerCase() === 'available') ? 'dot-available' : 'dot-away';
+
+                const card = document.createElement('article');
+                card.className = 'doc-card';
+                card.innerHTML = `
+                    <div class="doc-header">
+                        <div class="doc-avatar">
+                            <i class="fas ${icon}"></i>
+                            <div class="corner-dot ${dotClass}"></div>
+                        </div>
+                        <div class="doc-meta">
+                            <h3>${doc.name}</h3>
+                            <div class="doc-details-wrapper">
+                                <div class="doc-degree">${doc.degree}</div>
+                                <div class="doc-collage">${doc.collage || 'Senior Consultant'}</div>
+                                <div class="doc-specialty-wrapper"><span class="doc-specialty-tag">${doc.specialty}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="schedule-grid">
+                        <div class="s-item"><b>Visit Days</b><span>${doc.days}</span></div>
+                        <div class="s-item"><b>Timing</b><span>${doc.timing}</span></div>
+                        <div class="s-item"><b>Room No</b><span>${doc.room}</span></div>
+                        <div class="s-item"><b>Consultation</b><span>৳ ${doc.fee}</span></div>
+                    </div>
+                    <a href="tel:${doc.phone}" class="btn-booking"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Book Appointment</a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        window.onload = () => fetchAndFilter('All');
+
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey && ['c', 'v', 'u', 'a'].includes(e.key)) e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>
