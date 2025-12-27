@@ -100,27 +100,19 @@
             border-bottom: 1px solid var(--glass-border);
             position: sticky;
             top: 0;
-            ;
             height: 65px;
             z-index: 2000;
-            padding-top: 15px;
-            /* Vertical padding */
-
-            /* THE FIXES BELOW */
             display: flex;
             align-items: center;
-            /* Centers items vertically (top to bottom) */
-            justify-content: center;
-            /* Centers items horizontally (left to right) */
+            justify-content: space-between; /* Adjusted for translator */
+            padding: 0 20px;
         }
 
         .nav-brand {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 12px;
             text-decoration: none;
-            margin-bottom: 15px;
         }
 
         .nav-brand img {
@@ -136,39 +128,31 @@
             text-transform: uppercase;
         }
 
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            max-width: 95%;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, 0.03);
+        /* Google Translate Styling */
+        #google_translate_element {
             padding: 5px;
-            border-radius: 50px;
-            width: fit-content;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-light);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 10px 20px;
-            border-radius: 50px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* GLASS EFFECT ON ACTIVE/HOVER */
-        .nav-link:hover {
-            color: var(--primary);
             background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
         }
-
-        .nav-link.active {
-            background: var(--white);
-            color: var(--primary);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(5px);
+        
+        /* Hide Google Branding for cleaner look */
+        .goog-logo-link, .goog-te-gadget span, .goog-te-banner-frame {
+            display: none !important;
+        }
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0px !important;
+        }
+        .goog-te-combo {
+            font-family: 'Plus Jakarta Sans', sans-serif !important;
+            font-weight: 700;
+            font-size: 0.75rem !important;
+            color: var(--primary) !important;
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            cursor: pointer;
         }
 
         .container {
@@ -515,20 +499,16 @@
             }
 
             .nav-brand {
-                display: flex;
-                /* Puts items in a row */
-                align-items: center;
-                /* Aligns logo and text vertically */
                 gap: 10px;
-                /* Adds space between logo and text */
-                text-decoration: none;
-                /* Removes underline from link */
             }
 
             .nav-brand img {
-                height: 40px;
-                /* Adjust logo size as needed */
+                height: 35px;
                 width: auto;
+            }
+            
+            #google_translate_element {
+                scale: 0.9;
             }
         }
     </style>
@@ -536,10 +516,11 @@
 
 <body oncontextmenu="return false;">
     <nav class="glass-nav">
-        <a href="index.html" class="nav-brand flex items-center gap-2">
-            <img src="https://i.ibb.co/XrRrT9FD/logo-typo.webp" alt="Raozan Care Logo" class="h-10 w-auto">
-            <span class="text-2xl font-bold text-slate-700"></span>
+        <a href="index.html" class="nav-brand">
+            <img src="https://i.ibb.co/XrRrT9FD/logo-typo.webp" alt="Raozan Care Logo">
+            <span></span>
         </a>
+        <div id="google_translate_element"></div>
     </nav>
 
     <div class="container">
@@ -597,6 +578,21 @@
                     <div class="icon-box icon-blue" style="color:#0babf5; background:hsl(220, 9%, 94%);"><i
                             class="fa-solid fa-user-graduate"></i></div>
                     <span>Education</span>
+                </a>
+                <a href="tutor.html" class="service-card">
+                    <div class="icon-box icon-blue" style="color:#0babf5; background:hsl(220, 9%, 94%);"><i
+                            class="fa-solid fa-person-chalkboard"></i></div>
+                    <span>Tutor</span>
+                </a>
+                <a href="#" class="service-card">
+                    <div class="icon-box icon-blue" style="color:#0babf5; background:hsl(220, 9%, 94%);"><i
+                            class="fa-duotone fa-solid fa-building-columns"></i></div>
+                    <span>Union Porishod</span>
+                </a>
+                <a href="#" class="service-card">
+                    <div class="icon-box icon-blue" style="color:#0babf5; background:hsl(220, 9%, 94%);"><i
+                            class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <span>Technician</span>
                 </a>
             </div>
         </div>
@@ -708,6 +704,17 @@
     <a href="https://wa.me/8801601764777" class="whatsapp-fab" target="_blank" aria-label="Contact on WhatsApp"><i
             class="fab fa-whatsapp"></i></a>
     <div id="toast"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,bn',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script>
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwWUbwSAu9XJMyAqv93OwjGO4v-9sp9ccoWXYcWVve-Ff2rfnCx6ZqcjUzAfUY-fUnT6g/exec";
