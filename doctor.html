@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDSB6E5Z0R"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-KDSB6E5Z0R');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
@@ -188,17 +181,7 @@
             <b>Note:</b> Information is collected from public records. Always verify before visiting.
         </p>
 
-        <footer class="bg-white border-t border-slate-100 pt-10 pb-8 px-8 rounded-t-[3rem]">
-            <div class="grid grid-cols-2 gap-y-4 gap-x-8 mb-8">
-                <a href="about.html" target="_blank" class="text-slate-500 text-sm font-medium hover:text-blue-600 transition-colors">About</a>
-                <a href="privacy.html" target="_blank" class="text-slate-500 text-sm font-medium hover:text-blue-600 transition-colors">Privacy</a>
-                <a href="contact.html" target="_blank" class="text-slate-500 text-sm font-medium hover:text-blue-600 transition-colors">Contact</a>
-                <a href="terms.html" target="_blank" class="text-slate-500 text-sm font-medium hover:text-blue-600 transition-colors">Terms</a>
-            </div>
-            <div class="pt-6 border-t border-slate-50 text-center">
-                <p class="text-[11px] text-slate-400 font-semibold tracking-wide uppercase">&copy; 2025 HealthHub Chittagong</p>
-            </div>
-        </footer>
+        <script src="footer.js"></script>
     </main>
 
     <div id="doctorModal" onclick="closeModal(event)">
@@ -360,5 +343,4 @@
         window.onload = fetchDoctorsFromSheet;
     </script>
 </body>
-
 </html>
