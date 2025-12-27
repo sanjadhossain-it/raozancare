@@ -26,12 +26,11 @@
         }
 
         body {
-            background-color: #ffffff; /* Clean White Background */
+            background-color: #ffffff;
             margin: 0; padding: 0;
             color: #1e293b;
         }
 
-        /* Glass Header */
         header {
             position: sticky;
             top: 0;
@@ -52,7 +51,6 @@
             color: var(--primary);
         }
 
-        /* Modern Search Interface */
         .search-container {
             margin: -25px 20px 25px;
             position: relative;
@@ -77,7 +75,6 @@
         }
 
         .input-group:last-child { margin-bottom: 0; }
-
         .input-group i { color: #94a3b8; font-size: 14px; width: 20px; }
 
         select, input {
@@ -91,7 +88,6 @@
             color: #334155;
         }
 
-        /* Banner */
         .banner-card {
             width: 100%;
             height: 180px;
@@ -103,7 +99,6 @@
             margin-bottom: 40px;
         }
 
-        /* Tech List Design */
         .tech-card {
             background: white;
             border-radius: 18px;
@@ -125,24 +120,12 @@
             border: 2px solid #f8fafc;
         }
 
-        /* Shimmer Loaders */
         .shimmer {
             background: linear-gradient(90deg, #f8fafc 25%, #f1f5f9 50%, #f8fafc 75%);
             background-size: 200% 100%;
             animation: shimmer 1.5s infinite;
         }
         @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
-
-        /* FAQ */
-        details summary::-webkit-details-marker { display: none; }
-        
-        /* Modern Simple Footer */
-        footer {
-            background: #f8fafc;
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid #f1f5f9;
-        }
     </style>
 </head>
 <body>
@@ -177,7 +160,7 @@
                 </div>
                 <div class="input-group">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="locationSearch" onkeyup="filterTech()" placeholder="Enter your area in Raozan...">
+                    <input type="text" id="locationSearch" oninput="filterTech()" placeholder="Enter your area in Raozan...">
                 </div>
             </div>
         </div>
@@ -188,8 +171,7 @@
             <div class="tech-card h-24 shimmer"></div>
         </div>
 
-        <div id="techList" class="hidden">
-            </div>
+        <div id="techList" class="hidden"></div>
 
         <div class="mx-5 my-8 p-5 bg-slate-50 border border-slate-100 rounded-2xl">
             <h4 class="text-slate-900 text-xs font-bold mb-2 flex items-center gap-2">
@@ -213,72 +195,72 @@
             </div>
         </section>
 
-        <section class="px-5 mb-10">
-            <h3 class="font-bold text-sm text-slate-400 uppercase tracking-widest mb-4">Common Questions</h3>
-            <div class="space-y-2">
-                <details class="group bg-white border border-slate-100 rounded-xl overflow-hidden">
-                    <summary class="flex justify-between items-center p-4 cursor-pointer text-xs font-bold">
-                        How to contact a technician?
-                        <span class="text-blue-600 group-open:rotate-180 transition-transform"><i class="fas fa-chevron-down"></i></span>
-                    </summary>
-                    <div class="p-4 pt-0 text-[11px] text-slate-500">Simply click the call icon on the technician profile to connect directly.</div>
-                </details>
-            </div>
-        </section>
-
-        <script src="footer.js"></script>
     </main>
 
+     <script src="footer.js"></script>
+
     <script>
-        // Simulate loading state
+        // REPLACE THIS URL with your deployed Google Script Web App URL
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyoODMi573PkAm_gGEn0y1Pg_3O8zP0JgelKyrv-4GOxgcnoJf8-mxncsGyaaAQ9_E7/exec";
+        let technicianData = [];
+
         window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loadingScreen').classList.add('hidden');
-                document.getElementById('techList').classList.remove('hidden');
-                renderProfiles();
-            }, 1200);
+            fetchData();
         });
 
-        function renderProfiles() {
-            const list = document.getElementById('techList');
-            const data = [
-                {name: "Sabbir Ahmed", cat: "AC Technician", loc: "Noapara"},
-                {name: "Mohammad Yusuf", cat: "Plumber", loc: "Raozan Sadar"},
-                {name: "Kamal Uddin", cat: "Electrician", loc: "Pahartali"},
-                {name: "Nurul Islam", cat: "Electronic Technician", loc: "Gahira"},
-                {name: "Shahed Ali", cat: "Electrician", loc: "Noapara"},
-                {name: "Rofiqul Hayder", cat: "AC Technician", loc: "Sultanpur"},
-                {name: "Jasmin Akter", cat: "Electronic Technician", loc: "Raozan Sadar"},
-                {name: "Abul Bashar", cat: "Plumber", loc: "Noapara"},
-                {name: "Moinul Khan", cat: "Electrician", loc: "Muni Pukur"},
-                {name: "Farid Alam", cat: "AC Technician", loc: "Gahira"}
-            ];
+        async function fetchData() {
+            try {
+                const response = await fetch(SCRIPT_URL);
+                technicianData = await response.json();
+                renderProfiles(technicianData);
+                
+                document.getElementById('loadingScreen').classList.add('hidden');
+                document.getElementById('techList').classList.remove('hidden');
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                // Fallback for demo if fetch fails
+                document.getElementById('loadingScreen').innerHTML = "<p class='text-center text-xs p-10'>Failed to load technicians. Please check API URL.</p>";
+            }
+        }
 
-            list.innerHTML = data.map(tech => `
+        function renderProfiles(dataToRender) {
+            const list = document.getElementById('techList');
+            list.innerHTML = dataToRender.map(tech => {
+                // Use custom image from sheet if exists, otherwise use avatar
+                const image = tech.img && tech.img.includes('http') ? tech.img : `https://ui-avatars.com/api/?name=${tech.name}&background=f1f5f9&color=2563eb`;
+                
+                return `
                 <div class="tech-card" data-cat="${tech.cat}" data-loc="${tech.loc}">
-                    <img src="https://ui-avatars.com/api/?name=${tech.name}&background=f1f5f9&color=2563eb" class="tech-avatar">
+                    <img src="${image}" class="tech-avatar" alt="${tech.name}">
                     <div class="flex-1">
                         <h3 class="font-bold text-slate-900 text-sm">${tech.name}</h3>
                         <p class="text-[10px] font-bold text-blue-600 uppercase tracking-tighter">${tech.cat}</p>
                         <p class="text-[11px] text-slate-400 mt-0.5"><i class="fas fa-location-dot mr-1"></i>${tech.loc}</p>
                     </div>
-                    <a href="tel:01800000000" class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full">
+                    <a href="tel:${tech.phone}" class="w-10 h-10 flex items-center justify-center bg-blue-50 text-blue-600 rounded-full">
                         <i class="fas fa-phone-alt text-sm"></i>
                     </a>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         function filterTech() {
-            const cat = document.getElementById('categoryFilter').value.toLowerCase();
-            const loc = document.getElementById('locationSearch').value.toLowerCase();
+            const selectedCat = document.getElementById('categoryFilter').value.toLowerCase();
+            const searchLoc = document.getElementById('locationSearch').value.toLowerCase();
             const items = document.querySelectorAll('.tech-card');
 
             items.forEach(item => {
                 const itemCat = item.getAttribute('data-cat').toLowerCase();
                 const itemLoc = item.getAttribute('data-loc').toLowerCase();
-                const show = (cat === "" || itemCat === cat) && itemLoc.includes(loc);
-                item.style.display = show ? 'flex' : 'none';
+                
+                const matchesCat = selectedCat === "" || itemCat === selectedCat;
+                const matchesLoc = itemLoc.includes(searchLoc);
+
+                if (matchesCat && matchesLoc) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
             });
         }
     </script>
