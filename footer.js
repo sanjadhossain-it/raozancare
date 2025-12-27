@@ -125,17 +125,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         <nav class="footer-nav-links">
             <a href="about.html" class="f-btn">About</a>
-            <a href="privacy.html" class="f-btn">Privacy</a>
+            <a href="privacy.html" class="f-btn">Privacy Policy</a>
             <a href="contact.html" class="f-btn">Contact</a>
         </nav>
 
         <hr class="footer-hr">
 
-        <div class="footer-credits">
-            <div class="live-status">
-                <div class="dot"></div>
-                SYSTEM ACTIVE
-            </div>
             <p class="copy-info">
                 &copy; ${new Date().getFullYear()} Raozan Care. All rights reserved.
             </p>
