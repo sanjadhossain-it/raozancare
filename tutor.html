@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>RaozanTutors | Mobile Hub</title>
-    
+
+    <title>Best Teacher in Raozan | Professional Tutor Profiles & Home Tutors</title>
+    <meta name="description" content="Find the best teachers in Raozan for SSC, HSC, and Admission coaching.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-        
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: #f8fafc;
             -webkit-user-select: none;
             user-select: none;
             overflow-x: hidden;
-            word-wrap: break-word;
         }
 
-        .app-header {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+        input:not([type="checkbox"]),
+        select {
+            text-transform: uppercase;
         }
 
         .shimmer {
@@ -37,7 +35,9 @@
         }
 
         @keyframes shimmer {
-            to { background-position: -200% 0; }
+            to {
+                background-position: -200% 0;
+            }
         }
 
         .swiper {
@@ -46,258 +46,415 @@
             border-radius: 24px;
         }
 
-        .tutor-card h3, .tutor-card p {
+        #progress-container {
+            display: none;
+            width: 100%;
+            background-color: #e2e8f0;
+            border-radius: 999px;
+            height: 8px;
+            margin-top: 15px;
             overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
         }
 
-        input, select {
-            transition: all 0.2s ease;
+        #progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: #4f46e5;
+            transition: width 0.3s ease;
         }
 
-        input:focus, select:focus {
-            background-color: #fff !important;
-            box-shadow: 0 0 0 2px #4f46e5;
+        #profileModal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
-        #classSearch {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 1em;
+        #modalContent {
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .offline-anim {
-            animation: bounce 2s infinite;
+        #profileModal.active {
+            opacity: 1;
+            visibility: visible;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        #profileModal.active #modalContent {
+            transform: translateY(0);
         }
 
-        ::-webkit-scrollbar { display: none; }
+        /* Custom Scrollbar for Modal About section */
+        .custom-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        footer a {
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+        }
     </style>
 </head>
-<body class="pb-10">
 
-    <header class="app-header px-5 py-4 flex justify-center items-center">
-        <h1 class="text-lg font-extrabold text-slate-800 tracking-tight">Tutor</h1>
+<body class="pb-10" oncontextmenu="return false;">
+
+    <header
+        class="app-header bg-white/90 backdrop-blur-md sticky top-0 z-50 px-5 py-4 flex justify-center items-center border-b">
+        <h1 class="text-lg font-extrabold text-slate-800 tracking-tight">RaozanTutors</h1>
     </header>
 
     <div class="max-w-md mx-auto px-5">
-        
-        <div class="mt-6 space-y-3 bg-white p-4 rounded-3xl shadow-sm border border-slate-100">
+
+        <div class="mt-6 space-y-3 bg-white p-5 rounded-[32px] shadow-sm border border-slate-100">
+            <p class="text-[10px] font-black text-indigo-600 uppercase tracking-widest ml-1">Search Experts</p>
             <div class="relative">
-                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                <input type="text" id="subjectSearch" oninput="filterTutors()" placeholder="Search Subjects (e.g. Math)..." 
-                       class="w-full bg-slate-50 py-3.5 pl-11 pr-4 rounded-2xl text-sm font-medium outline-none">
+                <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                <input type="text" id="subjectSearch" oninput="filterTutors()" placeholder="SUBJECT (MATH, BIOLOGY...)"
+                    class="w-full bg-slate-50 py-3.5 pl-11 pr-4 rounded-2xl text-xs font-bold outline-none border border-transparent focus:border-indigo-500 focus:bg-white transition-all">
             </div>
-            <div class="relative">
-                <i class="fas fa-location-dot absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                <input type="text" id="locationSearch" oninput="filterTutors()" placeholder="Search Location (e.g. Raozan)..." 
-                       class="w-full bg-slate-50 py-3.5 pl-11 pr-4 rounded-2xl text-sm font-medium outline-none">
-            </div>
-            <div class="flex gap-2">
-                <select id="classSearch" onchange="filterTutors()" class="flex-1 bg-slate-50 py-3.5 px-4 rounded-2xl text-sm font-bold text-slate-600 outline-none">
-                    <option value="">All Classes</option>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="relative">
+                    <i class="fas fa-location-dot absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" id="locationSearch" oninput="filterTutors()" placeholder="LOCATION"
+                        class="w-full bg-slate-50 py-3.5 pl-10 pr-4 rounded-2xl text-xs font-bold outline-none border border-transparent focus:border-indigo-500 focus:bg-white transition-all">
+                </div>
+                <select id="classSearch" onchange="filterTutors()"
+                    class="bg-slate-50 py-3.5 px-4 rounded-2xl text-[11px] font-black text-slate-600 outline-none border border-transparent focus:border-indigo-500 transition-all">
+                    <option value="">ALL CLASSES</option>
+                    <option value="CLASS 1-5">CLASS 1-5</option>
+                    <option value="CLASS 6-9">CLASS 6-9</option>
                     <option value="SSC">SSC</option>
                     <option value="HSC">HSC</option>
+                    <option value="ADMISSION">ADMISSION</option>
                 </select>
-                <button onclick="filterTutors()" class="bg-indigo-600 text-white px-8 rounded-2xl font-bold text-sm shadow-lg shadow-indigo-100 active:scale-95 transition">Search</button>
             </div>
-        </div>
-
-        <div id="offline-view" class="hidden mt-10 text-center py-10">
-            <div class="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 offline-anim">
-                <i class="fas fa-wifi-slash text-red-500 text-2xl"></i>
-            </div>
-            <h3 class="font-bold text-slate-800">Connection Lost</h3>
-            <p class="text-slate-500 text-xs mt-1">Please check your internet settings</p>
         </div>
 
         <div class="mt-8">
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600" class="w-full h-full object-cover rounded-3xl"></div>
-                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600" class="w-full h-full object-cover rounded-3xl"></div>
+                    <div class="swiper-slide"><img
+                            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600"
+                            class="w-full h-full object-cover rounded-3xl"></div>
+                    <div class="swiper-slide"><img
+                            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600"
+                            class="w-full h-full object-cover rounded-3xl"></div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
 
-        <div class="mt-10 flex items-center justify-between mb-4">
-            <h2 class="text-lg font-extrabold text-slate-800">Available Tutors</h2>
+        <div class="mt-10 mb-4 flex items-center justify-between px-1">
+            <h2 class="text-lg font-black text-slate-800 tracking-tight">Verified Tutors</h2>
+            <span class="text-[10px] bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full font-bold">LIVE</span>
         </div>
 
         <div id="shimmer-container" class="space-y-4"></div>
-
         <div id="tutor-grid" class="hidden space-y-4"></div>
 
-        <div id="register" class="mt-12 bg-white rounded-[32px] p-8 shadow-xl shadow-slate-200/50 border border-slate-50">
+        <div id="register" class="mt-12 bg-white rounded-[32px] p-8 shadow-xl border border-slate-50">
             <div class="text-center mb-6">
                 <h3 class="text-2xl font-extrabold text-slate-900">Become a Tutor</h3>
                 <p class="text-slate-500 text-sm mt-1">Submit your profile to our network</p>
             </div>
-            
+
             <div class="space-y-4">
                 <div>
-                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Full Name</label>
-                    <input type="text" id="regName" placeholder="Enter name" class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium">
+                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Full Name (English
+                        Only)</label>
+                    <input type="text" id="regName" placeholder="ENTER NAME"
+                        class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium border border-transparent focus:bg-white">
                 </div>
                 <div>
-                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Subjects</label>
-                    <input type="text" id="regSubject" placeholder="Math, Physics, English..." class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium">
+                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Subject</label>
+                    <select id="regSubject"
+                        class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium border border-transparent">
+                        <option value="">SELECT SUBJECT</option>
+                        <option value="MATHEMATICS">MATHEMATICS</option>
+                        <option value="ENGLISH">ENGLISH</option>
+                        <option value="BANGLA">BANGLA</option>
+                        <option value="PHYSICS">PHYSICS</option>
+                        <option value="CHEMISTRY">CHEMISTRY</option>
+                        <option value="BIOLOGY">BIOLOGY</option>
+                        <option value="ICT">ICT</option>
+                        <option value="RELIGION">RELIGION</option>
+                        <option value="ALL SUBJECTS">ALL SUBJECTS</option>
+                    </select>
                 </div>
                 <div>
-                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Location</label>
-                    <input type="text" id="regLoc" placeholder="e.g. Raozan, Chittagong" class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium">
+                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Qualification (E.G.
+                        B.SC, HSC)</label>
+                    <input type="text" id="regQual" placeholder="ENTER QUALIFICATION"
+                        class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium border border-transparent focus:bg-white">
                 </div>
                 <div>
-                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Qualification</label>
-                    <input type="text" id="regQual" placeholder="B.Sc / M.A / HSC Student" class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium">
+                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Institute Name</label>
+                    <input type="text" id="regInst" placeholder="UNIVERSITY / COLLEGE NAME"
+                        class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium border border-transparent focus:bg-white">
                 </div>
                 <div>
-                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Experience</label>
-                    <input type="text" id="regExp" placeholder="e.g. 3 Years Experience" class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium">
+                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Class to Teach</label>
+                    <input type="text" id="regClass" placeholder="E.G. CLASS 9-10, SSC"
+                        class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium border border-transparent focus:bg-white">
                 </div>
-                
-                <button onclick="sendToWhatsApp()" class="w-full bg-[#25D366] py-4 rounded-2xl text-white font-extrabold text-sm flex items-center justify-center gap-3 shadow-lg shadow-green-100 active:scale-95 transition mt-2">
-                    <i class="fab fa-whatsapp text-lg"></i> Submit via WhatsApp
+                <div>
+                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Experience
+                        (Years)</label>
+                    <select id="regExp"
+                        class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium border border-transparent">
+                        <option value="1 YEAR">1 YEAR</option>
+                        <option value="2 YEARS">2 YEARS</option>
+                        <option value="3 YEARS">3 YEARS</option>
+                        <option value="4 YEARS">4 YEARS</option>
+                        <option value="5 YEARS">5 YEARS</option>
+                        <option value="6 YEARS">6 YEARS</option>
+                        <option value="7 YEARS">7 YEARS</option>
+                        <option value="8 YEARS">8 YEARS</option>
+                        <option value="9 YEARS">9 YEARS</option>
+                        <option value="10 YEARS+">10 YEARS+</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Location
+                        (City/Village)</label>
+                    <input type="text" id="regLoc" placeholder="E.G. NOAPARA"
+                        class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium border border-transparent focus:bg-white">
+                </div>
+                <div>
+                    <label class="text-[11px] font-bold text-slate-400 uppercase ml-1 mb-1 block">Phone (11
+                        Digits)</label>
+                    <input type="tel" id="regPhone" maxlength="11" placeholder="01XXXXXXXXX"
+                        class="w-full py-3.5 px-5 rounded-2xl bg-slate-50 text-slate-800 text-sm outline-none font-medium border border-transparent focus:bg-white">
+                </div>
+
+                <div class="terms-container mt-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                    <div class="flex items-start gap-3">
+                        <input type="checkbox" id="termsCheck" onchange="toggleSubmitBtn()"
+                            class="mt-1 w-4 h-4 rounded border-slate-300 text-indigo-600">
+                        <label for="termsCheck" class="text-[11px] text-slate-600 font-medium leading-tight">
+                            I agree to the <span class="text-indigo-600 font-bold">Terms & Conditions</span>. I am
+                            providing correct information.
+                        </label>
+                    </div>
+                </div>
+
+                <div id="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <button id="submitBtn" onclick="submitToSheet()" disabled
+                    class="w-full bg-slate-300 py-4 rounded-2xl text-white font-extrabold text-sm flex items-center justify-center gap-3 transition mt-2 cursor-not-allowed">
+                    <i class="fas fa-cloud-upload-alt text-lg"></i> Register Profile
                 </button>
             </div>
         </div>
 
-        <div class="mt-6 bg-amber-50 rounded-3xl p-6 border border-amber-100 flex gap-4">
-            <div class="w-10 h-10 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600 shrink-0">
-                <i class="fas fa-shield-halved text-lg"></i>
+        <footer class="mt-12 mb-6 text-center border-t pt-6">
+            <div class="flex justify-center gap-4 mb-2">
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="text-slate-300">|</span>
+                <a href="about.html">About Us</a>
+                <span class="text-slate-300">|</span>
+                <a href="terms.html">Terms & Condition</a>
             </div>
-            <div>
-                <h4 class="text-sm font-extrabold text-amber-900">Safety Disclaimer</h4>
-                <p class="text-[11px] leading-relaxed text-amber-700/80 mt-1 font-medium">
-                    RaozanTutors is a connecting platform only. We are <b>not responsible</b> for the pricing, negotiations, or personal conduct of tutors. Parents are advised to verify details independently before hiring.
-                </p>
+            <p class="text-[10px] text-slate-400 font-medium">&copy; 2025 RaozanTutors. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <div id="profileModal"
+        class="fixed inset-0 z-[100] bg-slate-900/70 backdrop-blur-sm opacity-0 invisible flex items-end sm:items-center justify-center transition-all duration-300 p-0 sm:p-5">
+        <div id="modalContent"
+            class="bg-white w-full max-w-md rounded-t-[40px] sm:rounded-[40px] p-8 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-32 bg-gradient-to-br from-indigo-500 to-indigo-700 -z-10"></div>
+
+            <button onclick="closeModal()"
+                class="absolute top-6 right-6 w-9 h-9 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-white/40 transition">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="flex flex-col items-center text-center mt-6">
+                <div id="modalInitial"
+                    class="w-24 h-24 bg-white rounded-3xl flex items-center justify-center text-indigo-600 text-4xl font-black mb-4 shadow-xl border-4 border-white">
+                    A</div>
+                <h2 id="modalName" class="text-2xl font-black text-slate-900 mb-1">...</h2>
+                <div id="modalSubject"
+                    class="bg-indigo-50 text-indigo-600 px-4 py-1 rounded-full font-black text-[10px] uppercase tracking-wider mb-6">
+                    ...</div>
+
+                <div class="w-full text-left bg-slate-50/80 rounded-3xl p-5 border border-slate-100 mb-6">
+                    <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">About
+                        Tutor</span>
+                    <p id="modalAbout" class="text-xs leading-relaxed text-slate-600 font-medium italic">
+                        Loading bio...
+                    </p>
+                </div>
+
+                <div class="w-full grid grid-cols-2 gap-3 mb-8">
+                    <div class="bg-slate-50 p-4 rounded-[24px] text-left border border-slate-100">
+                        <span class="text-[9px] font-black text-slate-400 uppercase block mb-1">Qualification</span>
+                        <p id="modalQual" class="text-[13px] font-black text-slate-800">...</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-[24px] text-left border border-slate-100">
+                        <span class="text-[9px] font-black text-slate-400 uppercase block mb-1">Experience</span>
+                        <p id="modalExp" class="text-[13px] font-black text-slate-800">...</p>
+                    </div>
+                </div>
+
+                <a id="modalCallBtn" href="#"
+                    class="w-full bg-indigo-600 py-5 rounded-[24px] text-white font-black text-base flex items-center justify-center gap-3 active:scale-95 shadow-lg shadow-indigo-200 transition-all">
+                    <i class="fas fa-phone-alt animate-pulse"></i> Call Now
+                </a>
+                <p class="text-[9px] text-slate-400 mt-4 font-bold uppercase tracking-tighter">Verified Contact by
+                    RaozanTutors</p>
             </div>
         </div>
-
-        <script src="footer.js"></script>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        function updateOnlineStatus() {
-            const offlineView = document.getElementById('offline-view');
-            if (!navigator.onLine) {
-                offlineView.classList.remove('hidden');
-            } else {
-                offlineView.classList.add('hidden');
-            }
-        }
-        window.addEventListener('online', updateOnlineStatus);
-        window.addEventListener('offline', updateOnlineStatus);
-        updateOnlineStatus();
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw5oO1pt_XzzYEen8WolTeKXx12BDYwnDNTkhGBGMlXfE89aCgkzA8iINDFB0yjbNFuNw/exec";
+        let tutors = [];
 
-        const shimContainer = document.getElementById('shimmer-container');
-        shimContainer.innerHTML = Array(10).fill(0).map(() => `
-            <div class="bg-white p-4 rounded-3xl border border-slate-100 flex gap-4">
-                <div class="shimmer w-16 h-16 rounded-2xl shrink-0"></div>
-                <div class="flex-1 space-y-2">
-                    <div class="shimmer w-1/2 h-4 rounded-md"></div>
-                    <div class="shimmer w-3/4 h-3 rounded-md"></div>
-                </div>
-            </div>
-        `).join('');
+        // Validation Listeners
+        const englishOnly = /[^A-Z0-9\s]/g;
+        const nameRestrict = /[^A-Z\s]/g;
 
-        new Swiper(".mySwiper", {
-            loop: true,
-            autoplay: { delay: 3500, disableOnInteraction: false },
-            pagination: { el: ".swiper-pagination", clickable: true },
+        document.getElementById('regName').addEventListener('input', function (e) {
+            this.value = this.value.toUpperCase().replace(nameRestrict, '');
         });
 
-        const tutors = [
-            { name: "Rahim Ullah", subject: "Mathematics", class: "SSC", location: "Raozan", qual: "B.Sc (CU)", exp: "4yr", phone: "8801..." },
-            { name: "Sadia Afrin", subject: "English Literature", class: "HSC", location: "Noapara", qual: "MA in English", exp: "2yr", phone: "8801..." },
-            { name: "Kamal Uddin", subject: "Physics", class: "HSC", location: "Gohira", qual: "M.Sc (Physics)", exp: "6yr", phone: "8801..." },
-            { name: "Tanvir Hasan", subject: "Mathematics", class: "HSC", location: "Raozan", qual: "B.Sc Engineering", exp: "3yr", phone: "8801..." },
-            { name: "Nusrat Jahan", subject: "Chemistry", class: "SSC", location: "Noapara", qual: "B.Sc Chemistry", exp: "5yr", phone: "8801..." }
-        ];
+        document.querySelectorAll('input:not([type="checkbox"])').forEach(input => {
+            if (input.id !== 'regName') {
+                input.addEventListener('input', function () {
+                    this.value = this.value.toUpperCase().replace(englishOnly, '');
+                });
+            }
+            input.onpaste = e => e.preventDefault();
+        });
+
+        function toggleSubmitBtn() {
+            const isChecked = document.getElementById('termsCheck').checked;
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = !isChecked;
+            btn.className = isChecked ?
+                "w-full bg-indigo-600 py-4 rounded-2xl text-white font-extrabold text-sm flex items-center justify-center gap-3 transition mt-2 shadow-lg" :
+                "w-full bg-slate-300 py-4 rounded-2xl text-white font-extrabold text-sm flex items-center justify-center gap-3 transition mt-2 cursor-not-allowed";
+        }
+
+        async function fetchTutors() {
+            try {
+                const response = await fetch(SCRIPT_URL);
+                const rawData = await response.json();
+                tutors = rawData.filter(t => t.status && t.status.toUpperCase() === 'ON');
+                document.getElementById('shimmer-container').classList.add('hidden');
+                document.getElementById('tutor-grid').classList.remove('hidden');
+                displayTutors(tutors);
+            } catch (error) {
+                console.log("Fetch error or no data");
+            }
+        }
+
+        async function submitToSheet() {
+            const data = {
+                name: document.getElementById('regName').value.trim(),
+                subject: document.getElementById('regSubject').value,
+                qual: document.getElementById('regQual').value.trim(),
+                inst: document.getElementById('regInst').value.trim(),
+                class: document.getElementById('regClass').value.trim(),
+                exp: document.getElementById('regExp').value,
+                loc: document.getElementById('regLoc').value.trim(),
+                phone: document.getElementById('regPhone').value.trim(),
+                status: "OFF"
+            };
+
+            if (!data.name || !data.subject || !data.phone || data.phone.length !== 11) {
+                return alert("Please enter a valid 11-digit phone and fill all fields.");
+            }
+            if (!data.phone.startsWith("01") || /^(01)\1+$/.test(data.phone)) {
+                return alert("Invalid Phone Number structure!");
+            }
+
+            const btn = document.getElementById('submitBtn');
+            const progCont = document.getElementById('progress-container');
+            const progBar = document.getElementById('progress-bar');
+
+            btn.disabled = true; btn.innerText = "Processing...";
+            progCont.style.display = "block";
+
+            let width = 0;
+            const interval = setInterval(() => { if (width >= 90) clearInterval(interval); width += 5; progBar.style.width = width + "%"; }, 100);
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                progBar.style.width = "100%";
+                setTimeout(() => { alert("Success! Profile pending admin approval."); location.reload(); }, 500);
+            } catch (e) { alert("Submission failed."); btn.disabled = false; }
+        }
+
+        function filterTutors() {
+            const s = document.getElementById('subjectSearch').value.toUpperCase();
+            const l = document.getElementById('locationSearch').value.toUpperCase();
+            const c = document.getElementById('classSearch').value.toUpperCase();
+
+            const filtered = tutors.filter(t =>
+                ((t.subject || "").toUpperCase().includes(s) || s === "") &&
+                ((t.location || "").toUpperCase().includes(l) || l === "") &&
+                ((t.class || "").toUpperCase().includes(c) || c === "")
+            );
+            displayTutors(filtered);
+        }
 
         function displayTutors(data) {
             const grid = document.getElementById('tutor-grid');
-            if(data.length === 0) {
-                grid.innerHTML = `<div class="text-center py-10 text-slate-400 text-sm font-bold">No results found for this search</div>`;
-                return;
-            }
-            grid.innerHTML = data.map(t => `
-                <div class="tutor-card bg-white p-5 rounded-[28px] border border-slate-100 flex gap-4 items-center shadow-sm active:bg-slate-50 transition">
-                    <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 font-extrabold text-xl shrink-0">
-                        ${t.name[0]}
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <div class="flex justify-between items-start">
-                            <h3 class="font-extrabold text-slate-800 text-[15px]">${t.name}</h3>
-                            <span class="text-[9px] bg-green-100 text-green-700 font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider">Verified</span>
+            grid.innerHTML = data.length === 0 ? '<p class="text-center text-slate-400 py-10 font-bold">No tutors found</p>' :
+                data.map((t, index) => `
+                <div onclick="openTutorProfile(${index})" class="bg-white p-4 rounded-[30px] border border-slate-100 flex gap-4 items-center shadow-sm active:scale-95 transition-all cursor-pointer relative overflow-hidden group">
+                    <div class="absolute right-0 top-0 w-16 h-16 bg-indigo-50 rounded-bl-full -z-0 opacity-50 group-hover:scale-110 transition-transform"></div>
+                    <div class="w-14 h-14 bg-indigo-600 rounded-2xl flex items-center justify-center text-white font-black text-xl shrink-0 z-10 shadow-lg shadow-indigo-100">${t.name[0]}</div>
+                    <div class="flex-1 min-w-0 z-10">
+                        <h3 class="font-black text-slate-800 text-[14px] truncate tracking-tight uppercase">${t.name}</h3>
+                        <p class="text-indigo-600 text-[10px] font-black tracking-widest uppercase">${t.subject}</p>
+                        <div class="flex items-center gap-2 mt-1.5">
+                            <span class="text-slate-400 text-[10px] font-bold"><i class="fas fa-location-dot mr-1 text-slate-300"></i>${t.location}</span>
+                            <span class="w-1 h-1 bg-slate-200 rounded-full"></span>
+                            <span class="text-slate-400 text-[10px] font-bold uppercase">${t.class}</span>
                         </div>
-                        <p class="text-indigo-600 text-[12px] font-bold mt-0.5">${t.subject} • ${t.class}</p>
-                        <div class="flex gap-3 mt-1">
-                            <p class="text-slate-500 text-[11px] font-medium"><i class="fas fa-location-dot mr-1 text-indigo-300"></i> ${t.location}</p>
-                            <p class="text-slate-500 text-[11px] font-medium"><i class="fas fa-briefcase mr-1 text-indigo-300"></i> ${t.exp} Exp</p>
-                        </div>
-                    </div>
-                    <div class="text-indigo-400">
-                        <i class="fas fa-chevron-right text-xs"></i>
                     </div>
                 </div>
             `).join('');
         }
 
-        function filterTutors() {
-            const subjInput = document.getElementById('subjectSearch').value.toLowerCase().trim();
-            const locInput = document.getElementById('locationSearch').value.toLowerCase().trim();
-            const classInput = document.getElementById('classSearch').value;
+        function openTutorProfile(index) {
+            const t = tutors[index];
+            document.getElementById('modalName').innerText = t.name;
+            document.getElementById('modalInitial').innerText = t.name[0];
+            document.getElementById('modalSubject').innerText = t.subject;
+            document.getElementById('modalQual').innerText = t.qual;
+            document.getElementById('modalExp').innerText = t.exp;
 
-            const filtered = tutors.filter(t => {
-                const matchesSubject = t.subject.toLowerCase().includes(subjInput);
-                const matchesLocation = t.location.toLowerCase().includes(locInput);
-                const matchesClass = (classInput === "" || t.class === classInput);
-                return matchesSubject && matchesLocation && matchesClass;
-            });
+            // Generate professional About Bio
+            const aboutText = `Professional tutor ${t.name} specializes in ${t.subject}. Currently teaching ${t.class}, bringing over ${t.exp} of academic experience from ${t.institute || 'reputed institutions'}. Holding a qualification of ${t.qual}, this expert is committed to high-quality education in the ${t.location} area.`;
+            document.getElementById('modalAbout').innerText = aboutText;
 
-            displayTutors(filtered);
+            document.getElementById('modalCallBtn').href = "tel:" + t.phone;
+            document.getElementById('profileModal').classList.add('active');
         }
 
-        setTimeout(() => {
-            document.getElementById('shimmer-container').classList.add('hidden');
-            document.getElementById('tutor-grid').classList.remove('hidden');
-            displayTutors(tutors);
-        }, 1200);
+        function closeModal() { document.getElementById('profileModal').classList.remove('active'); }
 
-        function sendToWhatsApp() {
-            const name = document.getElementById('regName').value;
-            const sub = document.getElementById('regSubject').value;
-            const loc = document.getElementById('regLoc').value;
-            const qual = document.getElementById('regQual').value;
-            const exp = document.getElementById('regExp').value;
+        document.getElementById('shimmer-container').innerHTML = Array(3).fill('<div class="shimmer h-24 w-full rounded-3xl"></div>').join('');
 
-            if(!name || !sub || !loc || !qual || !exp) {
-                alert("Please fill all registration details!");
-                return;
-            }
-
-            const message = `*Tutor Registration Request*%0A%0A` +
-                            `*Name:* ${name}%0A` +
-                            `*Subject:* ${sub}%0A` +
-                            `*Location:* ${loc}%0A` +
-                            `*Qualification:* ${qual}%0A` +
-                            `*Experience:* ${exp}`;
-            
-            window.open(`https://wa.me/8801854064777?text=${message}`, '_blank');
-        }
-
-        document.onkeydown = (e) => {
-            if (e.ctrlKey && ['c', 'u', 's', 'a'].includes(e.key)) return false;
-        };
+        new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 }, pagination: { el: ".swiper-pagination" } });
+        window.onload = fetchTutors;
     </script>
 </body>
+
 </html>
