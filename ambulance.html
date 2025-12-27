@@ -228,33 +228,36 @@
             line-height: 1.5;
         }
 
-        /* Footer Design */
-        footer {
-            background-color: #ffffff;
-            padding: 20px 10px;
+        /* --- NEW FOOTER STYLES --- */
+        .app-footer {
+            padding: 24px 16px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
             text-align: center;
-            border-top: 1px solid #f1f5f9;
-            z-index: 100;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .footer-links a {
-            color: #475569;
             font-size: 0.75rem;
+            color: #64748b;
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.2s;
         }
 
-        .copy-info {
+        .footer-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .copyright {
             font-size: 0.7rem;
             color: #94a3b8;
-            font-weight: 400;
         }
     </style>
 </head>
@@ -304,18 +307,19 @@
             <div class="p-6 text-[10px] text-gray-400 italic leading-relaxed text-center">
                 Note: We are a directory connecting users to private providers. Verify all details before booking.
             </div>
+
+            <footer class="app-footer">
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <span style="color: #cbd5e1;">•</span>
+                    <a href="contact.html">Contact Us</a>
+                    <span style="color: #cbd5e1;">•</span>
+                    <a href="about.html">About Us</a>
+                </div>
+                <p class="copyright">© 2025 Raozan Care | All Rights Reserved</p>
+            </footer>
         </div>
 
-        <footer>
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="copy-info">
-                &copy; 2025 <span class="text-blue-600 font-semibold">Smart Care</span> | All Rights Reserved
-            </div>
-        </footer>
     </div>
 
     <script>
